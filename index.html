@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VFCPL-MEP-001 AMBESS | ABS ESS-LiBATTERY Master Compliance Deck</title>
+<style>
+  :root {
+    --bg-dark: #0f172a;
+    --card-bg: #1e293b;
+    --card-border: #334155;
+    --primary: #38bdf8;
+    --primary-hover: #0ea5e9;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent: #f59e0b;
+    --success: #10b981;
+    --danger: #ef4444;
+    --info: #6366f1;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header */
+  header {
+    background: #0b1120;
+    border-bottom: 1px solid var(--card-border);
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .badge {
+    background: #0284c7;
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .brand-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+  }
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .btn {
+    background: var(--card-bg);
+    color: var(--text-main);
+    border: 1px solid var(--card-border);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn:hover {
+    background: var(--primary);
+    color: #0f172a;
+    border-color: var(--primary);
+  }
+  .slide-counter {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Slides Container */
+  main {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slide {
+    display: none;
+    width: 100%;
+    max-width: 1420px;
+    height: 100%;
+    max-height: 860px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 32px 40px;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    animation: fadeIn 0.3s ease;
+  }
+
+  .slide.active {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Slide Typography */
+  .slide-tag {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--primary);
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+  .slide-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #ffffff;
+    border-bottom: 2px solid #334155;
+    padding-bottom: 10px;
+  }
+  .slide-body {
+    flex: 1;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: #cbd5e1;
+  }
+
+  /* Grid Layouts */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 10px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 10px;
+  }
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 10px;
+  }
+
+  /* Cards */
+  .card {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 18px;
+  }
+  .card h3 {
+    font-size: 1.05rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h4 {
+    font-size: 0.92rem;
+    color: #f1f5f9;
+    margin-top: 8px;
+    margin-bottom: 4px;
+  }
+  .card ul {
+    padding-left: 18px;
+  }
+  .card li {
+    margin-bottom: 6px;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 0.85rem;
+  }
+  th, td {
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid #334155;
+  }
+  th {
+    background: #0f172a;
+    color: var(--primary);
+    font-weight: 600;
+  }
+  tr:hover td {
+    background: rgba(255,255,255,0.02);
+  }
+
+  /* Status Tags */
+  .status-tag {
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    display: inline-block;
+  }
+  .status-accepted { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #059669; }
+  .status-submitted { background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid #0284c7; }
+  .status-gap { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid #d97706; }
+  .status-action { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #dc2626; }
+
+  /* Callout boxes */
+  .callout {
+    background: rgba(56, 189, 248, 0.08);
+    border-left: 4px solid var(--primary);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 12px 0;
+    font-size: 0.88rem;
+  }
+  .callout-warning {
+    background: rgba(245, 158, 11, 0.08);
+    border-left: 4px solid var(--accent);
+  }
+  .callout-title {
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 3px;
+  }
+
+  /* Progress bar */
+  .progress-container {
+    height: 4px;
+    background: #1e293b;
+    width: 100%;
+  }
+  .progress-bar {
+    height: 100%;
+    background: var(--primary);
+    width: 5%;
+    transition: width 0.3s ease;
+  }
+
+  /* Custom Scrollbars */
+  .slide::-webkit-scrollbar {
+    width: 7px;
+  }
+  .slide::-webkit-scrollbar-track {
+    background: #1e293b;
+  }
+  .slide::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span class="badge">VFCPL-MEP-001</span>
+    <span class="brand-title">Marine BESS Master Compliance Deck: ABS ESS-LiBATTERY & IRS Alignment</span>
+  </div>
+  <div class="controls">
+    <button class="btn" onclick="prevSlide()">◀ Prev</button>
+    <span class="slide-counter" id="slideCounter">1 / 20</span>
+    <button class="btn" onclick="nextSlide()">Next ▶</button>
+    <button class="btn" onclick="toggleFullScreen()">⛶ Fullscreen</button>
+  </div>
+</header>
+<div class="progress-container">
+  <div class="progress-bar" id="progressBar"></div>
+</div>
+
+<main>
+
+  <!-- SLIDE 1 -->
+  <div class="slide active">
+    <div class="slide-tag">Slide 1 | Executive Strategy & Identity</div>
+    <h1 class="slide-title">Cross-Class Technical Compliance: ABS ESS-LiBATTERY & US Standards</h1>
+    <div class="slide-body">
+      <div class="grid-2">
+        <div class="card">
+          <h3>Project & Platform Profile</h3>
+          <ul>
+            <li><strong>Project Reference:</strong> Project SAMUDRA (AMBESS - Anchor Mode BESS)</li>
+            <li><strong>Applicant & Integrator:</strong> VFCPL (Vayusakti Future Construct Pvt. Ltd.)</li>
+            <li><strong>OEM Battery & BMS:</strong> Clean Electric (Pvt. Ltd.)</li>
+            <li><strong>Domestic Base:</strong> Indian Register of Shipping (IRS CN Rev.1, Mar 2026 & GL Rev.2, Mar 2026)</li>
+            <li><strong>Target American Standard:</strong> American Bureau of Shipping (ABS Dec 2025 Guide & Jan 2026 Notations)</li>
+            <li><strong>Core Architecture:</strong> Direct-Contact Dielectric Immersion-Cooled LFP Prismatic Cells, Self-Circulating Loop (Pump P1), Sealed Aluminum Tank.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>The Decision for Your Company (from Section 1)</h3>
+          <ul>
+            <li><strong>Primary Route:</strong> Pursue the <strong>IRS battery-system product approval route</strong> as the domestic baseline.</li>
+            <li><strong>ABS as Evidence Checklist:</strong> Use ABS Dec 2025 requirements as a second design checklist to avoid future redesign for ABS/US projects.</li>
+            <li><strong>Notation Nature:</strong> <code>ESS-LiBATTERY</code> is a <em>vessel notation</em> for an installed system. The supplier objective is <strong>ABS Type Approval (PDA + MA)</strong>.</li>
+            <li><strong>Harmonized Testing:</strong> Agree on shared test evidence between IRS and ABS before commissioning destructive tests.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout" style="margin-top: 16px;">
+        <div class="callout-title">Core Regulatory Principle</div>
+        Avoid promising an <code>ESS-LiBATTERY</code> notation for a rack or container sold on its own. Provide a class-assessed BESS product (PDA + MA) supported by evidence that the shipyard integrator uses for final vessel notation.
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2 -->
+  <div class="slide">
+    <div class="slide-tag">Slide 2 | Regulatory Hierarchy & Thresholds</div>
+    <h2 class="slide-title">Applicability Thresholds, Small Battery Rules & Class Notations</h2>
+    <div class="slide-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Regulatory Parameter</th>
+            <th>American Standard (ABS Dec 2025 Guide)</th>
+            <th>Indian Standard (IRS CN Rev.1 / GL Rev.2)</th>
+            <th>VFCPL-MEP-001 Status</th>
+            <th>Verdict</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Mandatory Capacity Threshold</strong></td>
+            <td><strong>&ge; 20 kWh</strong> (Lowered from 25 kWh in April 2024; confirmed Dec 2025). Mandatory application of Part 4, Ch 8 & Guide.</td>
+            <td>Mandatory for all lithium-ion systems intended for propulsion or essential services; no lower cutoff.</td>
+            <td>Designed as modular industrial battery energy storage system (&gt; 20 kWh).</td>
+            <td><span class="status-tag status-accepted">COMPLIANT</span></td>
+          </tr>
+          <tr>
+            <td><strong>Small Battery Clause</strong></td>
+            <td><strong>2 to &lt;20 kWh (Section 1/3.1):</strong> Specific simplified rules for units in control stations. Not a blanket exemption.</td>
+            <td>Handled on plan approval case-by-case; basic IEC 62619 safety required.</td>
+            <td>MEP-001 is designed for the full industrial marine energy regime.</td>
+            <td><span class="status-tag status-accepted">NOTED</span></td>
+          </tr>
+          <tr>
+            <td><strong>Class Notation</strong></td>
+            <td><strong><code>ESS-LiBATTERY</code></strong> (ABS Notations Table Jan 2026, p.59). Optional vessel notation verifying compliance.</td>
+            <td><strong><code>BATTERY PROP</code></strong> (Main Propulsion) or <strong><code>BATTERY (PROPULSION SUPPORT)</code></strong> (Hybrid/Auxiliary).</td>
+            <td>AMBESS supplies hotel/auxiliary anchor loads. Not main propulsion.</td>
+            <td><span class="status-tag status-accepted">ALIGNED</span></td>
+          </tr>
+          <tr>
+            <td><strong>US Statutory Framework</strong></td>
+            <td><strong>USCG NVIC 02-19</strong>, 46 CFR Subchapter J (Electrical), NFPA 855 (Stationary Storage).</td>
+            <td>DG Shipping Merchant Shipping Rules & IMO MSC.1/Circ.1453/1647.</td>
+            <td>Architecture adheres to IMO life-safety fundamentals.</td>
+            <td><span class="status-tag status-gap">ACTION REQ</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout-warning">
+        <div class="callout-title">Important Rule Interpretation (Section 1/3.1)</div>
+        Section 1/3.1 addresses 2 to &lt;20 kWh systems located in control stations; it is not a blanket exemption. For VFCPL-MEP-001 (&ge;20 kWh), the comprehensive ABS rules apply in full.
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3 -->
+  <div class="slide">
+    <div class="slide-tag">Slide 3 | Certification Pathways</div>
+    <h2 class="slide-title">What Certificate Should a BESS Supplier Seek? (Section 3)</h2>
+    <div class="slide-body">
+      <div class="grid-3">
+        <div class="card">
+          <h3>1. Product Design (PDA)</h3>
+          <p><strong>ABS Product Design Assessment</strong></p>
+          <ul>
+            <li>Technical review of defined product and intended service against stated rules.</li>
+            <li>Verification of cell test reports (IEC 62619, IEC 62620, UN 38.3).</li>
+            <li>Verification of thermal propagation evidence (UL 9540A).</li>
+            <li><strong>Validity:</strong> 5 Years.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>2. Manufacturing (MA)</h3>
+          <p><strong>ABS Manufacturing Assessment</strong></p>
+          <ul>
+            <li>Assessment of factory's production and quality control processes.</li>
+            <li>Applies to <strong>Clean Electric</strong> (BMS/modules) and <strong>VFCPL</strong> (pack assembly).</li>
+            <li>Requires ISO 9001 quality system basis.</li>
+            <li><strong>Audits:</strong> Annual plant surveillance audits.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>3. Unit Certification</h3>
+          <p><strong>ABS Type Approval & Unit Cert</strong></p>
+          <ul>
+            <li><strong>ABS Type Approval:</strong> PDA + MA combined.</li>
+            <li><strong>Unit Certification:</strong> Testing the physical assembly at manufacturer with an ABS surveyor where rules require it.</li>
+            <li>Generic product assessment does not settle every installation condition.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout" style="margin-top: 16px;">
+        <div class="callout-title">OEM vs. Secondary Manufacturing Distinction (from Section 3)</div>
+        If your company imports cells and builds modules/racks in India, identify who owns the design, who controls changes, and where final manufacture occurs. ABS PDA application distinguishes OEM design ownership from subcontracted secondary manufacturing sites and calls for duplicate PDA arrangements where applicable.
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4 -->
+  <div class="slide">
+    <div class="slide-tag">Slide 4 | Baseline Standards</div>
+    <h2 class="slide-title">What Each Standard Proves: IEC 62619, IEC 62620, UN 38.3 & UL (Section 5)</h2>
+    <div class="slide-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Evidence / Standard</th>
+            <th>Primary Purpose</th>
+            <th>How to Use it in VFCPL Project</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>IEC 62619:2022</strong></td>
+            <td>Industrial lithium cell/battery safety, including marine applications (short circuit, impact, drop, thermal abuse).</td>
+            <td>Obtain full reports identifying tested cell and assembly. Check that certificate scope matches supplied product.</td>
+            <td><span class="status-tag status-accepted">ACCEPTED</span></td>
+          </tr>
+          <tr>
+            <td><strong>IEC 62620:2014 + AMD1:2023</strong></td>
+            <td>Industrial cell/battery marking and performance requirements (capacity, endurance, discharge rates).</td>
+            <td>Connect declared capacity (307 Ah) and test configuration to marketed model. Record edition explicitly.</td>
+            <td><span class="status-tag status-accepted">ACCEPTED</span></td>
+          </tr>
+          <tr>
+            <td><strong>UN 38.3 Evidence</strong></td>
+            <td>Transport-related battery design testing (T1–T8 altitude, thermal, vibration, shock, short circuit).</td>
+            <td>Maintain separately from marine installation approval dossier. Do not present as proof of complete onboard safety.</td>
+            <td><span class="status-tag status-accepted">ACCEPTED</span></td>
+          </tr>
+          <tr>
+            <td><strong>UL 9540A Results</strong></td>
+            <td>Thermal-runaway / fire-propagation characterization (cell, module, unit, installation levels).</td>
+            <td>Use as supporting hazard evidence; obtain class agreement on equivalence to specified class test.</td>
+            <td><span class="status-tag status-submitted">SUBMITTED</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout callout-warning">
+        <div class="callout-title">Purchasing Distinction (from Section 3 & 5)</div>
+        Request the certificate, complete schedule, model list, limitations, and manufacturing-site details. A logo or certificate front page cannot establish whether your complete offered configuration is covered.
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5 -->
+  <div class="slide">
+    <div class="slide-tag">Slide 5 | Thermal Runaway Evidence</div>
+    <h2 class="slide-title">Thermal-Runaway Evidence: The 7 Review Questions (Section 8)</h2>
+    <div class="slide-body">
+      <div class="grid-2">
+        <div class="card">
+          <h3>The 7 Review Questions to Make Reports Usable</h3>
+          <ul>
+            <li><strong>1. Cell Authenticity:</strong> Does the tested cell have exactly the same construction as the purchased cell?</li>
+            <li><strong>2. Test Conditions:</strong> Does the report identify SOC (100%), conditioning, initiating method, and orientation?</li>
+            <li><strong>3. Worst-Case Setup:</strong> Was the tested assembly representative of the most challenging offered arrangement?</li>
+            <li><strong>4. Active Systems:</strong> Were cooling and active protective systems running, failed, or unavailable?</li>
+            <li><strong>5. Propagation Containment:</strong> What happened to adjacent cells/modules, enclosure pressure, and gas release?</li>
+            <li><strong>6. Gas & Heat Data:</strong> Are measured gas/heat data sufficient for integrator's ventilation & fire analysis?</li>
+            <li><strong>7. Configuration Limits:</strong> Which changes in spacing, barriers, enclosure, firmware, or coolant invalidate inference?</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Class Propagation Rules & Immersion Physics</h3>
+          <ul>
+            <li><strong>ABS Section 2/2.1 Mandate:</strong> Prevent cell-to-cell propagation, or at minimum module-to-module propagation.</li>
+            <li><strong>IRS CN Rev.1 App.1(b)#5:</strong> Non-propagation test at 100% SoC without external flaming.</li>
+            <li><strong>UL 9540 vs. UL 9540A:</strong> UL distinguishes <em>UL 9540A test method</em> from <em>UL 9540 complete-system certification criteria</em>. A report from one does not justify claiming certification to the other.</li>
+            <li><strong>VFCPL Direct Immersion:</strong> Dielectric fluid continuously absorbs sensible heat and suppresses hot-spot formation, halting thermal runaway propagation.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 6 -->
+  <div class="slide">
+    <div class="slide-tag">Slide 6 | Immersion Cooling Engineering</div>
+    <h2 class="slide-title">Liquid & Immersion Cooling: Hydrotest & Failure Detection (Section 2 & 4)</h2>
+    <div class="slide-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Subsystem / Requirement</th>
+            <th>ABS Dec 2025 Guide (Sec 2/2.4 & 3/2)</th>
+            <th>IRS CN Rev.1 (§1.4.d, §5.2.d.viii) & GL Rev.2</th>
+            <th>VFCPL-MEP-001 Specification</th>
+            <th>Verdict</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Shop Fabrication Hydrotest</strong></td>
+            <td><strong>1.5 &times; Design Pressure for 30 minutes</strong> during manufacturing. Zero leakage permitted.</td>
+            <td>CN Rev.1 5.2.d.viii: Pressure test to verify pressure-withstanding capacity.</td>
+            <td>Sealed aluminum casing hydrostatic pressure tested.</td>
+            <td><span class="status-tag status-gap">MINOR GAP</span> Standardize 30-min hold in QA sheet.</td>
+          </tr>
+          <tr>
+            <td><strong>Installation Tightness Test</strong></td>
+            <td>Tested at <strong>1.0 &times; Design Pressure</strong> following shipboard integration.</td>
+            <td>GL Rev.2 §3.3.3 functional test post-installation.</td>
+            <td>Leak-check procedure prior to dielectric fluid fill.</td>
+            <td><span class="status-tag status-accepted">ACCEPTED</span></td>
+          </tr>
+          <tr>
+            <td><strong>Piping Over Live Components</strong></td>
+            <td><strong>No mechanical pipe joints directly over live electrical components</strong> unless shielded.</td>
+            <td>GL Rev.2 2.3.4: Protection against fluid ingress onto live parts.</td>
+            <td>Monolithic immersion tank; no internal pipe joints. Fluid is non-conductive dielectric.</td>
+            <td><span class="status-tag status-accepted">ACCEPTED</span></td>
+          </tr>
+          <tr>
+            <td><strong>Cooling Failure Alarms</strong></td>
+            <td>Loss of coolant flow or high coolant temperature must raise an <strong>immediate alarm</strong> at manned station.</td>
+            <td>CN Rev.1 4.4.k & GL Rev.2 2.3.9.m: Cooling failure alarm mandatory at manned station.</td>
+            <td>Pump P1 current monitoring, flow telemetry, and &Delta;T thermistors (T1-T6).</td>
+            <td><span class="status-tag status-accepted">ACCEPTED</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout">
+        <div class="callout-title">AMBESS Pump Control Architecture</div>
+        Closed hydraulic loop: pack immersion channel &rarr; pump P1 &rarr; direct return. Pump energizes on Condition A (Fast charging current threshold) and Condition B (&Delta;T &gt; 2.5&deg;C across T1-T6), eliminating localized hot spots and delivering 89.65% SOH retention over 818 cycles.
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 7 -->
+  <div class="slide">
+    <div class="slide-tag">Slide 7 | Coolant Fluid Specifications</div>
+    <h2 class="slide-title">Dielectric Coolant Fluid: Electrical, Fire & Environmental Properties</h2>
+    <div class="slide-body">
+      <div class="grid-3">
+        <div class="card">
+          <h3>Electrical Insulation</h3>
+          <ul>
+            <li><strong>Dielectric Strength:</strong> &gt; 50 kV (IEC 60156 / ASTM D877).</li>
+            <li><strong>Volume Resistivity:</strong> &gt; 10<sup>12</sup> &Omega;&middot;m at 25&deg;C.</li>
+            <li><strong>Safety Margin:</strong> Prevents live busbar arcing up to 1000 VDC even during dynamic vessel motion.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Thermal & Fire Safety</h3>
+          <ul>
+            <li><strong>Flash Point:</strong> &gt; 160&deg;C (ISO 2719).</li>
+            <li><strong>Fire Point:</strong> &gt; 190&deg;C (ISO 2592).</li>
+            <li><strong>Kinematic Viscosity:</strong> &lt; 35 mm&sup2;/s at 40&deg;C; &lt; 3000 mm&sup2;/s at -20&deg;C (ASTM D7042).</li>
+            <li><strong>Heat Capacity:</strong> High specific heat for thermal buffering.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Environmental & Marine Safety</h3>
+          <ul>
+            <li><strong>Biodegradability:</strong> Readily biodegradable (&gt;60% in 28 days, OECD 301B).</li>
+            <li><strong>Aquatic Ecotoxicity:</strong> Non-toxic to marine organisms (OECD 201, 202, 203).</li>
+            <li><strong>Material Compatibility:</strong> Zero chemical degradation on NBR/FKM gaskets and copper busbars over 10-yr design life.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 8 -->
+  <div class="slide">
+    <div class="slide-tag">Slide 8 | BMS Safety & Firmware</div>
+    <h2 class="slide-title">BMS Safety Architecture: Critical Overrides Prohibited (Section 2 & 4)</h2>
+    <div class="slide-body">
+      <div class="grid-2">
+        <div class="card">
+          <h3>ABS BMS Requirements (Section 2/5)</h3>
+          <ul>
+            <li><strong>Critical Overrides Prohibited:</strong> No manual or software bypass permitted for critical safety shutdowns (high voltage, overtemp, short circuit).</li>
+            <li><strong>Single-Cell Monitoring:</strong> Individual monitoring of every cell/cell-block voltage and representative temperatures.</li>
+            <li><strong>Loss of Comms / Sensor:</strong> Reverts battery immediately to a fail-safe de-energized condition.</li>
+            <li><strong>Physical vs. CAN Status:</strong> A CAN status message indicating "safe" does not establish that a physical isolation device opened; physical feedback required.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Clean Electric BMS Implementation</h3>
+          <ul>
+            <li><strong>Cell Tab Sensing:</strong> 100% cell voltage coverage; 6 thermistors across immersion pack feeding BMS.</li>
+            <li><strong>Firmware Lockout:</strong> Critical safety threshold tripping is hardcoded in non-volatile flash; zero maintenance override.</li>
+            <li><strong>Heartbeat Watchdog:</strong> CAN communication timeout (&gt;250ms) prompts graceful shutdown.</li>
+            <li><strong>Dual Isolation:</strong> Positive and negative DC contactors backed by series high-breaking pyro-fuses.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout callout-warning" style="margin-top: 16px;">
+        <div class="callout-title">IRS 2026 BMS Amendments (from Section 4)</div>
+        The 2026 BMS amendments identify voltage imbalance, low insulation, cooling failure, and communication failure alarms. Applicable for certification applications dated from 1 July 2026.
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 9 -->
+  <div class="slide">
+    <div class="slide-tag">Slide 9 | Environmental Qualification</div>
+    <h2 class="slide-title">Marine Environmental & Control Qualification: IACS UR E10 (Section 6)</h2>
+    <div class="slide-body">
+      <div class="grid-2">
+        <div class="card">
+          <h3>UR E10 (Rev.10, Aug 2024) Test Scope</h3>
+          <ul>
+            <li><strong>Power Supply Variations:</strong> DC &plusmn;20% steady-state, transient drops to 0V for 5ms.</li>
+            <li><strong>Dry Heat:</strong> +70&deg;C for 16 hours operational.</li>
+            <li><strong>Damp Heat:</strong> +55&deg;C at 95% RH (cyclic, 2 cycles of 24 hours).</li>
+            <li><strong>Cold Test:</strong> -25&deg;C for 2 hours operational.</li>
+            <li><strong>Sinusoidal Vibration:</strong> 2.0 to 13.2 Hz (&plusmn;1.0 mm); 13.2 to 100 Hz (0.7g acceleration) on 3 orthogonal axes.</li>
+            <li><strong>Inclination:</strong> Static roll/pitch 22.5&deg;; dynamic roll 22.5&deg; (10s period).</li>
+            <li><strong>Salt Mist:</strong> 4 cycles of 7 days (28 days total) marine corrosion test.</li>
+            <li><strong>EMC Immunity & Emissions:</strong> Radiated/conducted emissions, burst, surge, and ESD.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Evaluation Strategy (from Section 6)</h3>
+          <ul>
+            <li><strong>Operating-Envelope Chart:</strong> Separate the cells' allowable operating range, the rack's qualified ambient range, the BMS electronics' test conditions, and cooling capacity. Build a single operating-envelope chart showing which limit constrains BESS at each temperature and SOC.</li>
+            <li><strong>Composite System Distinction:</strong> Testing a composite system does not itself generate separate certificates for individual components.</li>
+            <li><strong>Accredited Lab Execution:</strong> Perform UR E10 Rev.10 tests once with dual-class witnessing (IRS + ABS) to satisfy both approval files simultaneously.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 10 -->
+  <div class="slide">
+    <div class="slide-tag">Slide 10 | Electrical Protection</div>
+    <h2 class="slide-title">Electrical Protection: Fault Current, Pre-charge & Isolation (Section 7)</h2>
+    <div class="slide-body">
+      <div class="grid-2">
+        <div class="card">
+          <h3>Isolation vs. Containment Argument</h3>
+          <ul>
+            <li><strong>Stored Electrochemical Energy:</strong> Opening a DC contactor removes external current, but cannot remove energy already stored inside each cell.</li>
+            <li><strong>Independent Protection Systems:</strong> Separate electrical-isolation argument from heat/gas-containment argument in design review.</li>
+            <li><strong>Prospective Fault Current ($I_{sc}$):</strong> Rigorous DC short-circuit calculation per IEC 61660-1 based on LFP cell internal resistance.</li>
+            <li><strong>High-Speed Protection:</strong> Semiconductor DC pyro-fuses (>20 kA breaking capacity) clear dead shorts before contactor welding.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Pre-Charge & Insulation Monitoring</h3>
+          <ul>
+            <li><strong>Pre-charge Resistor Circuit:</strong> Limits capacitor inrush current to &lt;1.0C during inverter connection; interlocked with bus voltage (&gt;95%).</li>
+            <li><strong>Continuous Insulation Monitoring:</strong> Active ground fault detector on ungrounded (IT) DC bus.
+              <ul>
+                <li><strong>Pre-warning Alarm:</strong> Set at 100 &Omega;/V.</li>
+                <li><strong>Critical Trip:</strong> Set at 50 &Omega;/V with automatic system isolation.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 11 -->
+  <div class="slide">
+    <div class="slide-tag">Slide 11 | Enclosure & Ingress</div>
+    <h2 class="slide-title">Mechanical Ingress Protection & Pressure Relief System</h2>
+    <div class="slide-body">
+      <div class="grid-3">
+        <div class="card">
+          <h3>Ingress Protection (IP Rating)</h3>
+          <ul>
+            <li><strong>ABS Requirement (Sec 2/2.2):</strong> Minimum <strong>IP44</strong> in dedicated battery spaces; minimum <strong>IP67</strong> on exposed weather decks.</li>
+            <li><strong>IRS Requirement (INST-04):</strong> Minimum IP44 recommended.</li>
+            <li><strong>VFCPL Baseline:</strong> High-integrity sealed aluminum casing rated to <strong>IP67</strong> throughout. Exceeds standard battery room requirements.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Expansion & Thermal Breathing</h3>
+          <ul>
+            <li><strong>Fluid Volumetric Expansion:</strong> Dielectric fluid expands with temperature changes (&beta; &approx; 0.0007 /&deg;C).</li>
+            <li><strong>Internal Headspace:</strong> Inert gas headspace or internal expansion bellows accommodates fluid expansion across -10&deg;C to +65&deg;C without casing overpressure.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Overpressure Relief (PRV)</h3>
+          <ul>
+            <li><strong>Pressure Relief Valve:</strong> Spring-loaded PRV or rupture disc sized to discharge off-gas during thermal runaway.</li>
+            <li><strong>Venting Duct Interface:</strong> PRV discharge port connects directly to vessel external exhaust duct, discharging safely to open air away from ignition sources.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 12 -->
+  <div class="slide">
+    <div class="slide-tag">Slide 12 | Compartment & Ventilation</div>
+    <h2 class="slide-title">Battery Space Design, Ventilation & Hazardous Area Classification</h2>
+    <div class="slide-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>ABS Requirement (Dec 2025 Sec 3/3)</th>
+            <th>IRS Requirement (GL Rev.2 &sect;2.6.1)</th>
+            <th>Engineering Implementation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Room Boundary Fire Rating</strong></td>
+            <td>Machinery Space of Category A. Structural fire protection A-60 towards high risk areas.</td>
+            <td>Category A space treatment. A-60 boundaries adjacent to accommodation and control spaces.</td>
+            <td>Shipyard integration drawing specifies A-60 bulkheads and deckheads.</td>
+          </tr>
+          <tr>
+            <td><strong>Normal Ventilation</strong></td>
+            <td>Mechanical ventilation maintaining compartment &le; 35&deg;C. Independent ducting.</td>
+            <td>Independent mechanical ventilation providing minimum <strong>2 Air Changes per Hour (ACH)</strong>.</td>
+            <td>Dedicated supply & exhaust HVAC with intake near floor level and exhaust at ceiling.</td>
+          </tr>
+          <tr>
+            <td><strong>Emergency Ventilation</strong></td>
+            <td>Mandatory high-rate exhaust triggered automatically upon gas detection.</td>
+            <td>Minimum <strong>6 Air Changes per Hour (ACH)</strong> starting automatically on gas detection.</td>
+            <td>Dual-speed blower interlocked with BMS / Gas Detection panel.</td>
+          </tr>
+          <tr>
+            <td><strong>Ex / Hazardous Zoning</strong></td>
+            <td>Classified per IEC 60079-10-1. <strong>Zone 2</strong> where battery off-gas can be present.</td>
+            <td>Zone 2 assigned where off-gas can accumulate. Certified safe equipment at least <strong>Ex IIC T1</strong>.</td>
+            <td>All room lighting, gas sensors, fan motors, and actuators certified ATEX/IECEx Zone 2 Ex-d / Ex-ia.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SLIDE 13 -->
+  <div class="slide">
+    <div class="slide-tag">Slide 13 | Fire & Gas Safety</div>
+    <h2 class="slide-title">Fire Detection, Gas Monitoring & Water-Based Extinguishing</h2>
+    <div class="slide-body">
+      <div class="grid-2">
+        <div class="card">
+          <h3>Gas & Fire Detection Architecture</h3>
+          <ul>
+            <li><strong>Smoke Detection:</strong> Addressable optical smoke detectors compliant with IMO FSS Code.</li>
+            <li><strong>Off-Gas / LFL Monitoring:</strong> Flammable gas detectors monitoring $H_2$ / hydrocarbons:
+              <ul>
+                <li><strong>At 30% LFL:</strong> Audio-visual alarm at manned control station, automatic start of 6 ACH emergency ventilation, and BMS trip.</li>
+                <li><strong>At 60% LFL:</strong> Total automatic de-energization of all non-Ex electrical circuits in the compartment.</li>
+              </ul>
+            </li>
+            <li><strong>Thermal Imaging:</strong> Fixed thermographic / IR cameras recommended by IRS GL Rev.2 &sect;2.6.4.2 for lithium installations.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Fixed Extinguishing System Requirements</h3>
+          <ul>
+            <li><strong>Water-Based Mandatory:</strong> Fixed water mist or sprinkler system approved for Category A machinery spaces (IMO MSC.1/Circ.1165).</li>
+            <li><strong>Cooling Effectiveness:</strong> Class rules prohibit gaseous systems ($CO_2$, FM-200) as primary lithium runaway protection due to lack of cooling capacity.</li>
+            <li><strong>Immersion Protection Synergy:</strong> Dielectric fluid quenches internal cell runaway; external water mist prevents structural bulkheads from overheating and suppresses room fires.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 14 -->
+  <div class="slide">
+    <div class="slide-tag">Slide 14 | Containerized Systems</div>
+    <h2 class="slide-title">Packaged & Containerized Marine BESS (ABS Appendix 3 & Section 9)</h2>
+    <div class="slide-body">
+      <div class="grid-3">
+        <div class="card">
+          <h3>Structural Strength & CSC</h3>
+          <ul>
+            <li>Container structure certified to International Convention for Safe Containers (CSC).</li>
+            <li>Offshore variants certified to DNV 2.7-1 / ISO 10855 for marine lifting.</li>
+            <li>Deck tie-down FEA verifying survival under severe vessel heave, pitch, and roll accelerations.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Fire Separation & Boundaries</h3>
+          <ul>
+            <li>Container outer envelope insulated to <strong>A-60 standard</strong> throughout.</li>
+            <li>Located away from life-saving appliances (lifeboats, liferafts) and muster stations.</li>
+            <li>Self-closing doors with limit switches feeding wheelhouse alarms.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Self-Contained Safety Integration</h3>
+          <ul>
+            <li>Internal Fire & Gas (F&G) detection and deluge control panel.</li>
+            <li>External emergency shutdown (ESD) button outside container access door.</li>
+            <li>Self-contained HVAC system with automatic fast-closing fire dampers.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout callout-warning" style="margin-top: 14px;">
+        <div class="callout-title">Container Scope Warning (from Section 9)</div>
+        For containerized supply, explicitly identify whether HVAC, fire detection, suppression, exhaust, converter, and auxiliary power are included. A container shell certificate alone says little about the electrical and thermal safety of the contents.
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 15 -->
+  <div class="slide">
+    <div class="slide-tag">Slide 15 | AMBESS Operational Concept</div>
+    <h2 class="slide-title">AMBESS Operational Concept: Hotel Power & Essential Service Segregation</h2>
+    <div class="slide-body">
+      <div class="grid-2">
+        <div class="card">
+          <h3>Anchor Mode Operating Philosophy</h3>
+          <ul>
+            <li><strong>Duty Profile:</strong> Supplies vessel hotel and auxiliary electrical loads during anchor watch, shutting down diesel generators.</li>
+            <li><strong>Recharge Cycle:</strong> Generators operate in short, high-efficiency blocks (&gt;75% MCR) to recharge BESS, avoiding low-load wet-stacking.</li>
+            <li><strong>Solar Offset:</strong> Integrated DC/DC solar array offsets auxiliary charging demand in port/anchorage.</li>
+            <li><strong>Thermal Cycling:</strong> Validated over 818 cycles with 89.65% capacity retention and minimal cell degradation.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Essential Services & Redundancy Rules</h3>
+          <ul>
+            <li><strong>ABS & IRS Rule Alignment:</strong> If BESS powers main propulsion, dual redundant battery rooms and split distribution are mandatory.</li>
+            <li><strong>AMBESS Distinction:</strong> AMBESS is classed as <strong>Auxiliary Power / Propulsion Support</strong>.</li>
+            <li><strong>Electrical Interlock:</strong> A trip or short-circuit on the BESS DC bus must <strong>never backfeed or trip primary shipboard diesel generators</strong> or blackout steering gear.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 16 -->
+  <div class="slide">
+    <div class="slide-tag">Slide 16 | 10 Engineering Work Packages</div>
+    <h2 class="slide-title">The 10 Engineering Work Packages for the BESS Supplier (Section 7)</h2>
+    <div class="slide-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Work Package</th>
+            <th>Evidence VFCPL & Clean Electric Assemble</th>
+            <th>Decision to Close</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Product Definition</strong></td>
+            <td>Architecture, model codes, cell OEM, series/parallel configuration, DC voltage window, energy/power ratings.</td>
+            <td>Exactly which variants belong to the approval family?</td>
+          </tr>
+          <tr>
+            <td><strong>2. Cell Sourcing</strong></td>
+            <td>Full test reports (IEC 62619/62620), lot traceability, storage history, change notices.</td>
+            <td>Which supplier substitutions trigger reassessment?</td>
+          </tr>
+          <tr>
+            <td><strong>3. Module Mechanics</strong></td>
+            <td>Drawings, connection design, mass, center of gravity, fastening, and service access.</td>
+            <td>Which installation loads and mounting arrangements are approved?</td>
+          </tr>
+          <tr>
+            <td><strong>4. Electrical Protection</strong></td>
+            <td>Prospective fault current ($I_{sc}$), fuse/breaker selection, contactor ratings, pre-charge, isolation.</td>
+            <td>Can each credited device interrupt or withstand the actual fault?</td>
+          </tr>
+          <tr>
+            <td><strong>5. BMS Architecture</strong></td>
+            <td>Signal list, fault handling, software release controls, diagnostic coverage, override lock.</td>
+            <td>What is the safe response to each sensor, processor, or comms fault?</td>
+          </tr>
+          <tr>
+            <td><strong>6. Cooling Engineering</strong></td>
+            <td>Heat map, thermal model, fluid spec, flow/pressure limits, leakage controls, hydrotest records.</td>
+            <td>Which faults require derating, isolation, or shutdown?</td>
+          </tr>
+          <tr>
+            <td><strong>7. Off-gas & Fire</strong></td>
+            <td>Chemistry-specific test results, release paths, pressure relief, interfaces to ship systems.</td>
+            <td>Which protective functions are inside the product boundary?</td>
+          </tr>
+          <tr>
+            <td><strong>8. Converter Interface</strong></td>
+            <td>Limits, commands, feedback, timeout rules, stop sequence, restart conditions.</td>
+            <td>Does each end behave consistently when the other end fails?</td>
+          </tr>
+          <tr>
+            <td><strong>9. Production Assurance</strong></td>
+            <td>Incoming inspection, assembly records, torque control, end-of-line records, calibration.</td>
+            <td>How is every delivered unit connected to the assessed design?</td>
+          </tr>
+          <tr>
+            <td><strong>10. Field Support</strong></td>
+            <td>Installation limits, servicing instructions, spares policy, software updates, event retrieval.</td>
+            <td>How are unauthorized changes and configuration drift prevented?</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SLIDE 17 -->
+  <div class="slide">
+    <div class="slide-tag">Slide 17 | Supplier-Shipyard Boundary</div>
+    <h2 class="slide-title">Supplier vs. Shipyard Responsibility Boundary Schedule (Section 9)</h2>
+    <div class="slide-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Interface Domain</th>
+            <th>BESS Supplier Provides (VFCPL / Clean Electric)</th>
+            <th>Integrator / Shipyard Closes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>DC Power</strong></td>
+            <td>Voltage/current envelope, terminal details, fault contribution calculation.</td>
+            <td>Distribution switchboard, cabling, upstream protective device coordination.</td>
+          </tr>
+          <tr>
+            <td><strong>Cooling</strong></td>
+            <td>Required fluid spec, temperature limits, flow, internal pressure, heat rejection.</td>
+            <td>External cooling service (if any) and failure handling integration.</td>
+          </tr>
+          <tr>
+            <td><strong>Off-gas</strong></td>
+            <td>PRV outlet geometry, allowable backpressure, gas composition and volume evidence.</td>
+            <td>Exhaust duct routing to safe weather deck location away from air intakes.</td>
+          </tr>
+          <tr>
+            <td><strong>Shutdown</strong></td>
+            <td>Defined ESD input/output behavior, contactor tripping time, feedback telemetry.</td>
+            <td>Remote ESD push-buttons at bridge and outside battery space; end-to-end proving.</td>
+          </tr>
+          <tr>
+            <td><strong>Fire Protection</strong></td>
+            <td>Immersion fluid containment data, product-specific extinguishing restrictions.</td>
+            <td>A-60 structural boundary, approved fixed water-based extinguishing system installation.</td>
+          </tr>
+          <tr>
+            <td><strong>Mechanical</strong></td>
+            <td>Mass, center of gravity, mounting drawings, dynamic acceleration forces, lifting lugs.</td>
+            <td>Deck foundations, tie-down structural calcs, maintenance access corridors.</td>
+          </tr>
+          <tr>
+            <td><strong>Communications</strong></td>
+            <td>Modbus/CAN interface register map, timing, heartbeat timeout rules, failure states.</td>
+            <td>Compatible converter / EMS / PMS software driver implementation and testing.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SLIDE 18 -->
+  <div class="slide">
+    <div class="slide-tag">Slide 18 | Submission Dossier Structure</div>
+    <h2 class="slide-title">Controlled Submission Folders & 4-Tier Evidence States (Section 11)</h2>
+    <div class="slide-body">
+      <div class="grid-2">
+        <div class="card">
+          <h3>The 8 Controlled Submission Folders</h3>
+          <ul>
+            <li><strong>1. Basis:</strong> Intended use (AMBESS), exclusions, rule editions, model family, approval strategy.</li>
+            <li><strong>2. Design:</strong> Electrical SLD, mechanical drawings, BOM, operating envelope chart.</li>
+            <li><strong>3. Safety:</strong> Hazard register, FMEA, protective trip matrix, unresolved assumptions.</li>
+            <li><strong>4. Controls:</strong> BMS/converter interface, alarm list, firmware ID, software quality plan.</li>
+            <li><strong>5. Thermal:</strong> Immersion cooling technical submission, heat model, fluid spec, compatibility.</li>
+            <li><strong>6. Testing:</strong> Test procedures, class comments, witness records, reports, deviation logs.</li>
+            <li><strong>7. Manufacturing:</strong> Factory quality plan, cell batch traceability, assembly QA, change controls.</li>
+            <li><strong>8. Delivery:</strong> Unit identification, O&M manual, installation limits, FAT test records.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>The 4-Tier Evidence States (Section 11)</h3>
+          <p>Avoid a single "compliant" column: a design intention, a test result, and class acceptance are different levels of evidence.</p>
+          <ul>
+            <li><span class="status-tag status-accepted">ACCEPTED</span> Formally approved in writing by the classification society surveyor / plan review office.</li>
+            <li><span class="status-tag status-submitted">SUBMITTED</span> Formally delivered to class; currently pending technical review.</li>
+            <li><span class="status-tag status-gap">GAP</span> Requirement identified but evidence or test report does not yet exist; action required.</li>
+            <li><span class="status-tag status-action">NOT APPLICABLE</span> Excluded with formal engineering justification approved by class.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 19 -->
+  <div class="slide">
+    <div class="slide-tag">Slide 19 | Dual-Class Compliance Matrix</div>
+    <h2 class="slide-title">Complete Dual-Class Compliance Matrix & Gap Analysis</h2>
+    <div class="slide-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Subsystem</th>
+            <th>ABS Requirement (Dec 2025)</th>
+            <th>IRS Requirement (Mar 2026)</th>
+            <th>VFCPL Status</th>
+            <th>Evidence State</th>
+            <th>Action Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>System Threshold</strong></td>
+            <td>Applies &ge;20 kWh</td>
+            <td>Applies to all essential BESS</td>
+            <td>System >20 kWh</td>
+            <td><span class="status-tag status-accepted">ACCEPTED</span></td>
+            <td>Confirm installed kWh in drawings.</td>
+          </tr>
+          <tr>
+            <td><strong>Cell Safety</strong></td>
+            <td>IEC 62619:2022</td>
+            <td>IEC 62619:2022</td>
+            <td>LFP Prismatic Cells</td>
+            <td><span class="status-tag status-accepted">ACCEPTED</span></td>
+            <td>Obtain full OEM test report.</td>
+          </tr>
+          <tr>
+            <td><strong>Cell Performance</strong></td>
+            <td>IEC 62620:2023</td>
+            <td>IEC 62620:2023</td>
+            <td>307 Ah Rated</td>
+            <td><span class="status-tag status-accepted">ACCEPTED</span></td>
+            <td>Verify cell label markings.</td>
+          </tr>
+          <tr>
+            <td><strong>Thermal Runaway</strong></td>
+            <td>Non-propagation test</td>
+            <td>App.1(b)#5 non-prop</td>
+            <td>Immersion bath</td>
+            <td><span class="status-tag status-submitted">SUBMITTED</span></td>
+            <td>Submit UL 9540A module report.</td>
+          </tr>
+          <tr>
+            <td><strong>Shop Hydrotest</strong></td>
+            <td>1.5&times; design press, 30 min</td>
+            <td>5.2.d.viii pressure test</td>
+            <td>Sealed aluminum tank</td>
+            <td><span class="status-tag status-gap">GAP</span></td>
+            <td>Standardize 30-min hold in QA.</td>
+          </tr>
+          <tr>
+            <td><strong>BMS Override Lock</strong></td>
+            <td>Overrides forbidden</td>
+            <td>4.4.h override lock</td>
+            <td>Firmware locked</td>
+            <td><span class="status-tag status-accepted">ACCEPTED</span></td>
+            <td>Document in BMS manual.</td>
+          </tr>
+          <tr>
+            <td><strong>Environmental</strong></td>
+            <td>IACS UR E10 (Pt 4, Ch 9)</td>
+            <td>IACS UR E10 (CN Rev.1)</td>
+            <td>BMS Controller</td>
+            <td><span class="status-tag status-gap">GAP</span></td>
+            <td>Execute UR E10 tests at lab.</td>
+          </tr>
+          <tr>
+            <td><strong>Enclosure IP</strong></td>
+            <td>Min IP44 space / IP67 deck</td>
+            <td>Min IP44 (GL 2.2.8)</td>
+            <td>IP67 sealed casing</td>
+            <td><span class="status-tag status-accepted">ACCEPTED</span></td>
+            <td>Submit certified IP67 test report.</td>
+          </tr>
+          <tr>
+            <td><strong>Ventilation</strong></td>
+            <td>Normal + Emergency exhaust</td>
+            <td>2 ACH normal / 6 ACH emerg</td>
+            <td>HVAC layout design</td>
+            <td><span class="status-tag status-submitted">SUBMITTED</span></td>
+            <td>Include airflow calculation in packet.</td>
+          </tr>
+          <tr>
+            <td><strong>Type Approval</strong></td>
+            <td>ABS PDA + MA (5 Years)</td>
+            <td>IRS TA Certificate</td>
+            <td>Target Submissions</td>
+            <td><span class="status-tag status-gap">GAP</span></td>
+            <td>Submit PDA application to ABS.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SLIDE 20 -->
+  <div class="slide">
+    <div class="slide-tag">Slide 20 | Approval Roadmap & Decisions</div>
+    <h2 class="slide-title">Approval Sequence & 10 First-Meeting Decisions (Section 10 & 12)</h2>
+    <div class="slide-body">
+      <div class="grid-2">
+        <div class="card">
+          <h3>The 8-Step Approval Sequence (Section 10)</h3>
+          <ul>
+            <li><strong>1. Freeze Certification Basis:</strong> Rule editions, duty, and model family.</li>
+            <li><strong>2. Report-by-Report Gap Review:</strong> Match claims to documents.</li>
+            <li><strong>3. Agree Test Plan:</strong> Lock lab protocols before booking.</li>
+            <li><strong>4. Resolve Architecture Risks:</strong> Cooling, isolation, override locks.</li>
+            <li><strong>5. Qualify Representative Design:</strong> BOM, HW, FW control.</li>
+            <li><strong>6. Complete Works Assessment:</strong> Factory QA audit.</li>
+            <li><strong>7. Deliver Serial Dossier:</strong> Unit test records and deviations.</li>
+            <li><strong>8. Support Installation:</strong> Shipyard sea trials & commissioning.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>10 Decisions for First Technical Meeting (Section 12)</h3>
+          <ul>
+            <li>1. Confirm BESS service (auxiliary-only duty rule basis).</li>
+            <li>2. Package vs. individual component certificate scope.</li>
+            <li>3. Representative model and product family limits.</li>
+            <li>4. Written decision on existing IEC / ABS witnessed reports.</li>
+            <li>5. Propagation-test configuration and acceptance criteria.</li>
+            <li>6. Environmental qualification locations (IACS UR E10).</li>
+            <li>7. BMS software assessment and failure simulation tests.</li>
+            <li>8. Unit-certification scope and factory hold points.</li>
+            <li>9. Installation dependencies appearing as certificate limits.</li>
+            <li>10. Change-notification thresholds for cells and firmware.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout" style="margin-top: 14px;">
+        <div class="callout-title">Immediate Next Step</div>
+        Generate one approved certification-basis sheet and one agreed test/evidence matrix from the first technical meeting to control design freeze and laboratory procurement.
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const slideCounter = document.getElementById('slideCounter');
+  const progressBar = document.getElementById('progressBar');
+
+  function updateSlide(n) {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (n + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+    slideCounter.innerText = `${currentSlide + 1} / ${slides.length}`;
+    progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+  }
+
+  function nextSlide() { updateSlide(currentSlide + 1); }
+  function prevSlide() { updateSlide(currentSlide - 1); }
+
+  function toggleFullScreen() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'Space') nextSlide();
+    if (e.key === 'ArrowLeft') prevSlide();
+    if (e.key === 'f' || e.key === 'F') toggleFullScreen();
+  });
+</script>
+
+</body>
+</html>
+
