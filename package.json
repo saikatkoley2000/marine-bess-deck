@@ -1,0 +1,9 @@
+{
+  "name": "marine-bess-deck",
+  "version": "1.0.0",
+  "private": true,
+  "description": "VFCPL Marine BESS ABS ESS-LiBATTERY & IRS Compliance Presentation",
+  "scripts": {
+    "start": "serve ."
+  }
+}

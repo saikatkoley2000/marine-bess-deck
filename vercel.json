@@ -1,8 +1,6 @@
 {
-  "version": 2,
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/", "destination": "/index.html" },
     { "source": "/deck", "destination": "/ABS_ESS_LiBATTERY_Compliance_Deck.html" },
     { "source": "/app", "destination": "/VFCPL_Marine_BESS_Master_Web_App.html" },
     { "source": "/master", "destination": "/VFCPL_Marine_BESS_Master_Web_App.html" }
