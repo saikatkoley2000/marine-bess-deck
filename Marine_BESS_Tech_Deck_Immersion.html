@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marine Battery ESS Technologies | Tech Deck</title>
+<style>
+  :root {
+    --bg-dark: #090e17;
+    --card-bg: #131c2e;
+    --card-border: #233554;
+    --primary: #38bdf8;
+    --primary-glow: rgba(56, 189, 248, 0.2);
+    --secondary: #0ea5e9;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent: #f59e0b;
+    --danger: #ef4444;
+    --success: #10b981;
+    --highlight: #818cf8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header */
+  header {
+    background: #0d1525;
+    border-bottom: 1px solid var(--card-border);
+    padding: 12px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .badge {
+    background: linear-gradient(135deg, #0284c7, #2563eb);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .brand-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: -0.01em;
+  }
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .btn {
+    background: var(--card-bg);
+    color: var(--text-main);
+    border: 1px solid var(--card-border);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn:hover {
+    background: var(--primary);
+    color: #090e17;
+    border-color: var(--primary);
+    box-shadow: 0 0 12px var(--primary-glow);
+  }
+  .slide-counter {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Main Stage */
+  main {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    padding: 20px 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slide {
+    display: none;
+    width: 100%;
+    max-width: 1380px;
+    height: 100%;
+    max-height: 840px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 36px 44px;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.6);
+    animation: fadeIn 0.25s ease-out;
+  }
+
+  .slide.active {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Typography */
+  .slide-tag {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--primary);
+    letter-spacing: 0.12em;
+    margin-bottom: 4px;
+  }
+  .slide-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: #ffffff;
+    border-bottom: 2px solid var(--card-border);
+    padding-bottom: 10px;
+  }
+  .slide-body {
+    flex: 1;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+  }
+
+  /* Cards & Layouts */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .card {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 18px;
+  }
+  .card-highlight {
+    border-color: var(--primary);
+    background: rgba(56, 189, 248, 0.05);
+  }
+  .card-danger {
+    border-color: var(--danger);
+    background: rgba(239, 68, 68, 0.05);
+  }
+  .card-success {
+    border-color: var(--success);
+    background: rgba(16, 185, 129, 0.05);
+  }
+  .card h3 {
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .stat-box {
+    text-align: center;
+    padding: 16px;
+    background: rgba(15, 23, 42, 0.8);
+    border-radius: 8px;
+    border: 1px solid var(--card-border);
+  }
+  .stat-val {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 4px;
+  }
+  .stat-lbl {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.88rem;
+  }
+  th, td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--card-border);
+  }
+  th {
+    background: #0f172a;
+    color: var(--primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+  }
+  tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  /* Lists */
+  ul {
+    padding-left: 20px;
+    margin-top: 6px;
+  }
+  li {
+    margin-bottom: 6px;
+  }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .tag-danger { background: rgba(239, 68, 68, 0.2); color: #fca5a5; }
+  .tag-success { background: rgba(16, 185, 129, 0.2); color: #6ee7b7; }
+  .tag-primary { background: rgba(56, 189, 248, 0.2); color: #7dd3fc; }
+  .tag-warning { background: rgba(245, 158, 11, 0.2); color: #fcd34d; }
+
+  /* Footer */
+  footer {
+    background: #0d1525;
+    border-top: 1px solid var(--card-border);
+    padding: 8px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span class="badge">Tech Deck</span>
+    <span class="brand-title">Marine Battery ESS Technologies | Synthetic Ester Immersion</span>
+  </div>
+  <div class="controls">
+    <button class="btn" onclick="prevSlide()">&#8592; Prev</button>
+    <span class="slide-counter" id="slide-num">1 / 15</span>
+    <button class="btn" onclick="nextSlide()">Next &#8594;</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- Slide 1: Cover -->
+  <div class="slide active">
+    <div class="slide-tag">Executive Strategy</div>
+    <h1 class="slide-title">Safer Cells, Cooler Ships: Direct Immersion BESS</h1>
+    <div class="slide-body" style="display:flex; flex-direction:column; justify-content:center; gap:24px;">
+      <div class="card card-highlight">
+        <h2 style="font-size:1.6rem; color:#fff; margin-bottom:8px;">Breaking the Marine "Leak-Arc-Fuel" Chain</h2>
+        <p style="font-size:1.05rem; color:#94a3b8;">
+          Almost all commercial marine battery energy storage systems (BESS) today rely on forced air or cold-plate water/glycol loops. 
+          Direct dielectric liquid immersion cooling using high-fire-point synthetic esters eliminates high-voltage arcing hazards, suppresses thermal propagation, and delivers game-changing thermal uniformity.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3 style="color:var(--primary);">🎯 Target Audience</h3>
+          <p>Naval Architects, Commercial Shipyards (Cochin Shipyard, GRSE, HCSL), Global Pack OEMs, and Classification Surveyors (IRS, DNV, ABS).</p>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--accent);">⚡ Technology Advantage</h3>
+          <p>K3-class dielectric fluid (>300°C fire point) fully wets every cell, reducing peak cell temp rise by 74.5% and inter-cell gradient by 60.8%.</p>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--success);">📜 Regulatory Path</h3>
+          <p>Type approval through Indian Register of Shipping (IRS CN July 2020 / Rev.1) as early beachhead, aligned with DNV-RU-SHIP Pt.6 Ch.2 & ABS.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 2: Market Transformation -->
+  <div class="slide">
+    <div class="slide-tag">Market Context & Regulatory Pull</div>
+    <h1 class="slide-title">The Rapid Acceleration of Marine Electrification</h1>
+    <div class="slide-body">
+      <div class="grid-4" style="margin-bottom:20px;">
+        <div class="stat-box">
+          <div class="stat-val">944</div>
+          <div class="stat-lbl">Active Battery Vessels (DNV AFI)</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">451</div>
+          <div class="stat-lbl">Vessels Currently on Order</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">68%</div>
+          <div class="stat-lbl">European Fleet Share (Norway 33%)</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">16.5%</div>
+          <div class="stat-lbl">Market CAGR to 2035 ($3.8B+)</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Regulatory Pull & Environmental Mandates</h3>
+          <ul>
+            <li><strong>IMO 2023 GHG Strategy:</strong> Net-zero emissions target by or around 2050, with strict indicative checkpoints for 2030 and 2040.</li>
+            <li><strong>EU ETS Maritime:</strong> Carbon allowances phased into maritime shipping since 2024.</li>
+            <li><strong>FuelEU Maritime:</strong> Enforcing rigorous annual reductions in onboard greenhouse gas intensity starting 2025.</li>
+          </ul>
+        </div>
+        <div class="card card-highlight">
+          <h3>Fleet Architecture Breakdown</h3>
+          <ul>
+            <li><strong>Hybrid Systems (65%):</strong> Peak shaving, dynamic spinning reserve, zero-emission harbour entry/anchor operation.</li>
+            <li><strong>Pure Electric (18%):</strong> Dedicated short-sea ferries and urban commuter passenger craft.</li>
+            <li><strong>Plug-in Hybrids (17%):</strong> Combined shore charging with auxiliary generation.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 3: India Beachhead -->
+  <div class="slide">
+    <div class="slide-tag">Domestic Market</div>
+    <h1 class="slide-title">India: The Ideal High-Ambience Beachhead</h1>
+    <div class="slide-body">
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="color:var(--accent);">Flagship Indian References</h3>
+          <ul>
+            <li><strong>Kochi Water Metro:</strong> 78 hybrid electric passenger catamarans built by Cochin Shipyard Ltd (CSL). Powered by 122 kWh LTO packs, dual-classed under IRS and DNV, carrying over 7.7M passengers.</li>
+            <li><strong>IWAI Inland Fleets:</strong> 8 hybrid catamarans constructed by Hooghly Cochin Shipyard (HCSL), awarded the IRS <code>BATTERY PROP</code> notation.</li>
+            <li><strong>Indigenous Innovations:</strong> Navalt solar-electric ferries (<em>Aditya</em> 50 kWh, <em>Indra</em> 80 kWh) operating under IRS class.</li>
+          </ul>
+        </div>
+        <div class="card card-highlight">
+          <h3 style="color:var(--primary);">Harit Nauka & Vision 2047 Mandate</h3>
+          <ul>
+            <li><strong>Ministry of Ports, Shipping and Waterways (MoPSW):</strong> Mandates 50% green-fuel inland passenger fleets within a decade, targeting 100% by 2045.</li>
+            <li><strong>Tropical Climate Reality:</strong> Indian coastal/inland waterways experience 35°C–45°C ambient temperatures. Forced air cooling suffers severe thermal derating and salt-fog corrosion.</li>
+            <li><strong>IRS Class Leadership:</strong> IRS has established clear type-approval routes, offering an immediate domestic springboard before global export.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 4: Chemistry Matrix -->
+  <div class="slide">
+    <div class="slide-tag">Cell Technology</div>
+    <h1 class="slide-title">Marine Chemistry Landscape: NMC vs. LFP vs. LTO</h1>
+    <div class="slide-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>G-NMC / NMCA</th>
+            <th>LFP (Iron Phosphate)</th>
+            <th>LTO (Lithium Titanate)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Dominant Suppliers</strong></td>
+            <td>Leclanché (Navius MRS-3), Spear, XALT</td>
+            <td>Corvus (Blue Whale), EST-Floattech, CATL, EVE</td>
+            <td>Echandia, Toshiba SCiB, Forsee Power</td>
+          </tr>
+          <tr>
+            <td><strong>System Energy Density</strong></td>
+            <td>High (~130–160 Wh/kg, up to 180 Wh/L)</td>
+            <td>Moderate (~90–120 Wh/kg, 110–130 Wh/L)</td>
+            <td>Lower (~60–80 Wh/kg, 70–95 Wh/L)</td>
+          </tr>
+          <tr>
+            <td><strong>Cycle Life (80% DoD)</strong></td>
+            <td>3,000 – 5,000 cycles</td>
+            <td>4,000 – 8,000 cycles</td>
+            <td>20,000+ cycles (ultra-high durability)</td>
+          </tr>
+          <tr>
+            <td><strong>C-Rate Duty</strong></td>
+            <td>1C – 3C continuous</td>
+            <td>0.7C – 1C continuous</td>
+            <td>6C continuous / 10C peak fast-charge</td>
+          </tr>
+          <tr>
+            <td><strong>Safety & Off-Gas</strong></td>
+            <td>Releases oxygen during thermal breakdown; intense exothermic runaway.</td>
+            <td>Higher thermal stability; no oxygen release, but vents toxic/flammable gases.</td>
+            <td>Highest intrinsic thermal stability; minimal runaway risk.</td>
+          </tr>
+          <tr>
+            <td><strong>Primary Role</strong></td>
+            <td>Long voyages, volume-constrained hulls</td>
+            <td><strong>Commercial marine bulk energy standard</strong></td>
+            <td>Frequent fast-turnaround urban ferries</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.85rem; color:var(--text-muted); margin-top:8px;">
+        <em>Key takeaway:</em> Industry volume is consolidating rapidly behind LFP for bulk energy and LTO for high-cycle duty. While safer than NMC, both still require liquid thermal containment to prevent cell-to-cell thermal propagation.
+      </p>
+    </div>
+  </div>
+
+  <!-- Slide 5: Supplier Landscape & White Space -->
+  <div class="slide">
+    <div class="slide-tag">Market Analysis</div>
+    <h1 class="slide-title">Global Marine ESS Landscape & The Immersion White Space</h1>
+    <div class="slide-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Supplier & Model</th>
+            <th>Chemistry</th>
+            <th>Cooling Method</th>
+            <th>Class Approvals</th>
+            <th>Flagship References</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Corvus Energy</strong> (Orca / Blue Whale)</td>
+            <td>NMC / LFP</td>
+            <td>Forced Air</td>
+            <td>DNV, LR, BV, ABS</td>
+            <td>Norled <em>Ampere</em>, Bibby Marine CSOV (24.4 MWh)</td>
+          </tr>
+          <tr>
+            <td><strong>Corvus Energy</strong> (Dolphin NxtGen)</td>
+            <td>Li-ion</td>
+            <td>Cold Plate (Liquid)</td>
+            <td>In Progress</td>
+            <td>BC Ferries Summit Class (4 × 10 MWh)</td>
+          </tr>
+          <tr>
+            <td><strong>Leclanché</strong> (Navius MRS-3)</td>
+            <td>G/NMC & NMCA</td>
+            <td>Cold Plate (Liquid)</td>
+            <td>LR, BV Type Approval</td>
+            <td><em>Ellen</em> E-ferry (4.3 MWh), CGN Geneva hybrids</td>
+          </tr>
+          <tr>
+            <td><strong>EST-Floattech</strong> (Octopus)</td>
+            <td>LFP</td>
+            <td>Integrated Air</td>
+            <td>DNV, LR, BV, ABS</td>
+            <td>European inland barges & hybrid workboats</td>
+          </tr>
+          <tr>
+            <td><strong>Shift Clean Energy</strong> (PwrSwäp)</td>
+            <td>Li-ion</td>
+            <td>Patented Channel Liquid</td>
+            <td><strong>IRS</strong>, ClassNK, RINA, LR</td>
+            <td>17+ tugs (Red Offshore, Asia), containerized ePods</td>
+          </tr>
+          <tr style="background:rgba(56, 189, 248, 0.1);">
+            <td><strong>XING Mobility</strong> (IMMERSIO)</td>
+            <td>Li-ion</td>
+            <td><strong>Single-Phase Immersion</strong></td>
+            <td><strong>DNV Process Ongoing</strong></td>
+            <td>Porrima P111, Smart IQ e-boat</td>
+          </tr>
+          <tr style="background:rgba(56, 189, 248, 0.1);">
+            <td><strong>Kreisel Electric</strong></td>
+            <td>Li-ion (21700)</td>
+            <td><strong>Immersion (Shell MIVOLT)</strong></td>
+            <td>DNV Claimed</td>
+            <td>High-performance e-boats</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="card card-highlight" style="margin-top:14px;">
+        <strong>The Competitive Opening:</strong> Not a single Tier-1 marine supplier currently markets a mass-produced, multi-class type-approved dielectric immersion system. Incumbents are heavily invested in cold plates or air cooling.
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 6: The Ytteroyningen Incident -->
+  <div class="slide">
+    <div class="slide-tag">Case Study & Root Cause</div>
+    <h1 class="slide-title">Case Study: The <em>Ytterøyningen</em> Ferry Fire (2019)</h1>
+    <div class="slide-body">
+      <div class="grid-2">
+        <div class="card card-danger">
+          <h3 style="color:var(--danger);">⚠️ The Incident Sequence</h3>
+          <ul>
+            <li><strong>Vessel:</strong> Norled hybrid ferry <em>MF Ytterøyningen</em> equipped with a ~2 MWh liquid-cooled ESS.</li>
+            <li><strong>Initial Event (10 Oct 2019):</strong> Fire alarm triggered in battery room while berthed. Pack BMS had been disconnected for routine maintenance.</li>
+            <li><strong>Suppression Actions:</strong> Novec 1230 gas and brief activation of the ship's saltwater deluge sprinkler system.</li>
+            <li><strong>Catastrophic Explosion (11 Oct 2019):</strong> ~12 hours later, a massive hydrogen/syngas explosion blew open doors and warped structural bulkheads.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--accent);">🔍 Official Findings (Corvus & NMA)</h3>
+          <ul>
+            <li><strong>Primary Cause:</strong> A twisted gasket inside the water-glycol cold-plate circuit leaked conductive coolant onto energized components.</li>
+            <li><strong>Electrical Arcing:</strong> Conductive fluid bridged live parts at <strong>1,000 V DC</strong>, creating high-energy sustained arcing.</li>
+            <li><strong>Fuel Source:</strong> The combustible ethylene glycol liquid in the coolant mixture fueled and sustained the fire.</li>
+            <li><strong>Sprinkler Escalation:</strong> The Norwegian Maritime Authority found seawater sprinkler discharge caused further short circuits across the high-voltage string.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card card-highlight" style="margin-top:16px;">
+        <strong>The Indisputable Lesson for Class Societies:</strong> Water-glycol cooling brings both electrical conductivity and combustible fuel directly inside the high-voltage pack. A dielectric fluid completely removes this hazard by design.
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 7: Three Cooling Topologies Compared -->
+  <div class="slide">
+    <div class="slide-tag">Engineering Architecture</div>
+    <h1 class="slide-title">Cooling Architectural Comparison</h1>
+    <div class="slide-body">
+      <div class="grid-3">
+        <div class="card">
+          <h3>1. Forced Air</h3>
+          <p style="color:var(--accent); font-weight:600; margin-bottom:8px;">Corvus Orca, EST Octopus</p>
+          <ul>
+            <li><strong>Heat Transfer:</strong> Low convective efficiency; large thermal gradients across modules.</li>
+            <li><strong>Derating:</strong> Requires severe C-rate throttles in tropical ambient conditions (>35°C).</li>
+            <li><strong>Environmental Risk:</strong> Ingress of humid, saline maritime air induces salt fog corrosion.</li>
+            <li><strong>Propagation:</strong> Relies entirely on passive solid barriers (aerogel/mica).</li>
+          </ul>
+        </div>
+        <div class="card card-danger">
+          <h3>2. Cold-Plate (Water/Glycol)</h3>
+          <p style="color:var(--danger); font-weight:600; margin-bottom:8px;">Leclanché MRS-3, Siemens BlueVault</p>
+          <ul>
+            <li><strong>Heat Transfer:</strong> High at cold-plate contact face, but leaves internal thermal gradients.</li>
+            <li><strong>Leak Hazard:</strong> Conductive fluid leak causes <strong>1,000 V DC arcing</strong> (as on <em>Ytterøyningen</em>).</li>
+            <li><strong>Fuel Contamination:</strong> Ethylene glycol adds combustible load to the pack interior.</li>
+            <li><strong>Class Mandate:</strong> DNV 2023 rules enforce strict leak detection and fault current mitigation.</li>
+          </ul>
+        </div>
+        <div class="card card-success">
+          <h3>3. Dielectric Immersion</h3>
+          <p style="color:var(--success); font-weight:600; margin-bottom:8px;">Synthetic Ester Architecture</p>
+          <ul>
+            <li><strong>Heat Transfer:</strong> Direct 100% surface contact on all cell walls and busbars.</li>
+            <li><strong>Leak Hazard:</strong> Fluid is purely dielectric (>50 kV breakdown). Leak cannot trigger arcing.</li>
+            <li><strong>Fire Protection:</strong> Ultra-high fire point (>300°C K3 class). Acts as an active thermal snuffer.</li>
+            <li><strong>Propagation:</strong> Quenches thermal spikes Sensible + Latent before runaway spreads.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 8: Fluid Science -->
+  <div class="slide">
+    <div class="slide-tag">Dielectric Chemistry</div>
+    <h1 class="slide-title">K3 Synthetic Ester: The Marine Thermal Fluid</h1>
+    <div class="slide-body">
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="color:var(--primary);">Thermophysical & Safety Metrics</h3>
+          <ul>
+            <li><strong>Fire Point > 300°C (IEC 61100 K3 Class):</strong> Classified as "less flammable" fluid. Far superior to transformer mineral oil (~218°C) or glycol blends.</li>
+            <li><strong>Flash Point > 260°C (ISO 2592):</strong> Exceptional safety margin above maximum pack operating temps (max 55°C).</li>
+            <li><strong>Dielectric Breakdown Voltage > 50 kV:</strong> Eliminates short-circuit and arcing pathways even across exposed high-voltage DC terminals.</li>
+            <li><strong>Superior Water Saturation Tolerance:</strong> Synthetics absorb significantly higher ambient moisture before experiencing dielectric strength degradation.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--success);">Marine Environmental & Vessel Compatibility</h3>
+          <ul>
+            <li><strong>Readily Biodegradable (OECD 301B):</strong> Rapid natural breakdown in aquatic environments, satisfying MARPOL and port bilge drainage criteria.</li>
+            <li><strong>Non-Hazardous to Marine Life:</strong> Non-toxic classification prevents severe environmental contamination in catastrophic hull damage.</li>
+            <li><strong>Material Compatibility:</strong> Fully neutral with cell casing seals, busbars, nickel plating, PEEK insulators, and BMS conformal coatings.</li>
+            <li><strong>Oxidation Stability:</strong> 10–15 year operational service life with periodic inline sampling.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 9: Thermal Runaway Propagation -->
+  <div class="slide">
+    <div class="slide-tag">Safety Validation</div>
+    <h1 class="slide-title">Eliminating Thermal Runaway Propagation</h1>
+    <div class="slide-body">
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="color:var(--accent);">The Thermal Physics of Quenching</h3>
+          <p>Under abusive conditions (internal micro-short, mechanical puncture, or localized heating):</p>
+          <ul>
+            <li><strong>Immersion Heat Sink:</strong> The surrounding bath of fluid instantly absorbs sensible and latent heat directly at the localized cell surface.</li>
+            <li><strong>Preventing Critical Temp ($T_c$):</strong> Neighboring cells are shielded from reaching their critical runaway initiation temperature ($200^\circ\text{C} - 240^\circ\text{C}$ for LFP).</li>
+            <li><strong>Oxygen Exclusion:</strong> The dense fluid blanket completely isolates venting cell gases from atmospheric oxygen at the point of release.</li>
+          </ul>
+        </div>
+        <div class="card card-highlight">
+          <h3 style="color:var(--success);">Test Evidence & Target Benchmarks</h3>
+          <ul>
+            <li><strong>Lab Performance Data:</strong> Synthetic-ester immersion reduces maximum pack temperature rise by <strong>74.5%</strong> and temperature differences by <strong>60.8%</strong> under aggressive 3C cycling compared to air cooling.</li>
+            <li><strong>Certification Target:</strong> <strong>IEC 62619 Clause 7.3.3 / DNV Option 1:</strong> Single-cell forced thermal runaway with zero propagation to adjacent cells and a mandatory 24-hour observation hold.</li>
+            <li><strong>UL 9540A Realities:</strong> Testing labs have noted that in immersion-cooled systems, fluids had to be intentionally drained to force propagation, proving fluid efficacy.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 10: Regulatory Frameworks -->
+  <div class="slide">
+    <div class="slide-tag">Class Rules & Codes</div>
+    <h1 class="slide-title">Global Marine Regulatory Alignment</h1>
+    <div class="slide-body">
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="color:var(--primary);">Indian Register of Shipping (IRS)</h3>
+          <ul>
+            <li><strong>Classification Note (July 2020 / Rev.1):</strong> Prescribes type-approval protocols per chemistry and forced-cooling review.</li>
+            <li><strong>Guidelines on Battery Powered Vessels:</strong> Requires pressure testing of liquid cooling systems and safety disconnect validation.</li>
+            <li><strong>Notations:</strong> <code>BATTERY PROP</code> (main propulsion) and <code>BATTERY (PROPULSION SUPPORT)</code>.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--secondary);">DNV (DNV-RU-SHIP Pt.6 Ch.2 Sec.1)</h3>
+          <ul>
+            <li><strong>July 2023 Update:</strong> Strict prescriptive rules on cooling system leaks causing fault currents and explosive gas mitigation.</li>
+            <li><strong>Propagation Standard:</strong> Option 1 (Zero cell-to-cell propagation with 24-hour hold).</li>
+            <li><strong>Notations:</strong> <code>Battery(Power)</code> and new 2027 <code>Battery ready</code> notation.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="grid-2" style="margin-top:16px;">
+        <div class="card">
+          <h3 style="color:var(--accent);">American Bureau of Shipping (ABS Dec 2025)</h3>
+          <ul>
+            <li><strong>Mandatory Threshold:</strong> Applied to systems ≥20 kWh.</li>
+            <li><strong>Testing Mandates:</strong> Prescriptive 1.5× hydrostatic pressure test for 30 minutes; ducted off-gas ventilation to safe weather deck.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--text-main);">EMSA 2023 & IMO Framework</h3>
+          <ul>
+            <li><strong>EMSA Guidance:</strong> Dedicated battery spaces for >50 kWh; dedicated drain containment tanks for cooling fluid leaks.</li>
+            <li><strong>IMO Sub-Committees:</strong> MSC 110/111 developing interim BESS safety guidelines for SOLAS II-1/41 harmonization.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 11: IRS Roadmap -->
+  <div class="slide">
+    <div class="slide-tag">Certification Execution</div>
+    <h1 class="slide-title">IRS Type Approval: Practical 6-Step Roadmap</h1>
+    <div class="slide-body">
+      <div class="grid-3">
+        <div class="card">
+          <div class="stat-val" style="font-size:1.4rem;">Step 1</div>
+          <h3 style="color:var(--primary);">Pre-Submission</h3>
+          <p>Formal engagement with IRS Technical Directorate to establish the novel alternative design framework for immersion cooling.</p>
+        </div>
+        <div class="card">
+          <div class="stat-val" style="font-size:1.4rem;">Step 2</div>
+          <h3 style="color:var(--primary);">Dossier Submission</h3>
+          <p>Submission of cooling P&IDs, expansion volume calculations, fluid breakdown dossiers, FMEA/HAZID, and BMS safety logic.</p>
+        </div>
+        <div class="card">
+          <div class="stat-val" style="font-size:1.4rem;">Step 3</div>
+          <h3 style="color:var(--primary);">Works Assessment</h3>
+          <p>IRS physical audit of manufacturing, pack assembly cleanroom, helium/pressure leak testing, and QA procedures.</p>
+        </div>
+        <div class="card">
+          <div class="stat-val" style="font-size:1.4rem;">Step 4</div>
+          <h3 style="color:var(--accent);">Witnessed Testing</h3>
+          <p>IRS surveyor witnessing of IEC 62619 cl. 7.3.3 propagation test, 1.5× hydrostatic pressure hold, and IACS UR E10 tests.</p>
+        </div>
+        <div class="card">
+          <div class="stat-val" style="font-size:1.4rem;">Step 5</div>
+          <h3 style="color:var(--success);">Type Approval</h3>
+          <p>Issuance of 5-Year IRS Type Approval Certificate with intermediate surveillance audits at &le;30 months.</p>
+        </div>
+        <div class="card">
+          <div class="stat-val" style="font-size:1.4rem;">Step 6</div>
+          <h3 style="color:var(--success);">Unit Certification</h3>
+          <p>Shipyard FAT, vessel installation survey, inclination sea trials, and vessel notation award.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 12: Answering Class Questions -->
+  <div class="slide">
+    <div class="slide-tag">Surveyor Alignment</div>
+    <h1 class="slide-title">Defensible Answers to Key Class Inquiries</h1>
+    <div class="slide-body">
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="color:var(--primary);">Q1: Fluid Fire Load in the Battery Room?</h3>
+          <p><strong>Answer:</strong> The fluid is a K3-class synthetic ester with an auto-ignition temperature >400°C and fire point >300°C. Operating at <55°C, it presents zero vapor pressure and cannot be ignited by 1,000 V DC arcs. It serves as a fire barrier, not a fire accelerant.</p>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--primary);">Q2: Off-Gas Routing Through Immersion Liquid?</h3>
+          <p><strong>Answer:</strong> Vent gases bubble rapidly through the dielectric bath (which actively cools the gas and condenses heavy aerosols) into a sealed headspace, which exhausts through a calibrated non-return burst valve directly to weather deck.</p>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--primary);">Q3: Fluid Sloshing at 45° Sea Inclination?</h3>
+          <p><strong>Answer:</strong> Enclosures feature internal flow baffles and positive-pressure expansion bladders. Cells remain 100% submerged and wetted across all static and dynamic roll/pitch angles compliant with IACS UR E10.</p>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--primary);">Q4: Fixed Extinguishment System Compatibility?</h3>
+          <p><strong>Answer:</strong> The immersion tank is a sealed primary pressure boundary. External space protection (e.g. Novec 1230, aerosol, or water mist) acts on the battery room boundaries without contaminating the dielectric fluid.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 13: Shipyard Integration -->
+  <div class="slide">
+    <div class="slide-tag">Naval Architecture</div>
+    <h1 class="slide-title">Shipyard Integration & Naval Architecture Benefits</h1>
+    <div class="slide-body">
+      <div class="grid-3">
+        <div class="card card-highlight">
+          <h3 style="color:var(--primary);">Volumetric Packing</h3>
+          <p>Eliminates large HVAC forced-air ducting and thick inter-cell solid ceramic barriers. Enables Cell-to-Pack (CTP) architectures with up to <strong>20–30% higher volumetric density</strong> in the battery space.</p>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--accent);">Simplified Interface</h3>
+          <p>The immersion loop is completely contained inside the skid. The shipyard's mechanical scope is restricted to standard flange connections to the secondary Plate Heat Exchanger (chilled or raw water cooling).</p>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--success);">Low-Maintenance Life</h3>
+          <p>Closed hydraulic loops prevent internal salt mist fouling. Standard annual fluid sampling verifies dielectric strength and moisture levels, ensuring a 10–15 year system lifespan.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 14: Strategic Partnerships -->
+  <div class="slide">
+    <div class="slide-tag">Commercial Deployment</div>
+    <h1 class="slide-title">Shipyard & OEM Commercial Strategy</h1>
+    <div class="slide-body">
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="color:var(--primary);">Tier-1 Shipyard Alliances</h3>
+          <ul>
+            <li><strong>Cochin Shipyard (CSL):</strong> Target expansion phases of Kochi Water Metro and coastal passenger ferries.</li>
+            <li><strong>Hooghly Cochin Shipyard (HCSL):</strong> Target IWAI National Waterways hybrid pushers and catamarans.</li>
+            <li><strong>GRSE & Goa Shipyard:</strong> Fast patrol craft, hybrid green tugs, and harbor workboats.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--accent);">Pack OEM Collaboration Model</h3>
+          <ul>
+            <li><strong>OEM Co-Development:</strong> Partner with established module makers (e.g. Shift Clean Energy, Leclanché, Echandia) to provide immersion thermal skids for their cells.</li>
+            <li><strong>Turnkey Skid Provider:</strong> Deliver certified immersion containment tanks, fluid handling, and thermal control skids as an integrated subsystem.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 15: Conclusion & Call to Action -->
+  <div class="slide">
+    <div class="slide-tag">Vision & Next Steps</div>
+    <h1 class="slide-title">Leading the Next Wave of Marine Safety</h1>
+    <div class="slide-body" style="display:flex; flex-direction:column; justify-content:center; gap:20px;">
+      <div class="card card-highlight">
+        <h2 style="font-size:1.5rem; color:#fff; margin-bottom:8px;">Partner With Us for Clean, Safe Marine Energy</h2>
+        <p style="font-size:1.05rem; color:#94a3b8;">
+          Immersion cooling is the definitive answer to the structural safety challenges that have troubled maritime battery installations. 
+          By combining high-fire-point synthetic esters with an IRS/DNV certification framework, we offer commercial shipyards and vessel operators unmatched safety, compact integration, and peak performance.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3 style="color:var(--primary);">1. Pilot Vessel Integration</h3>
+          <p>Collaborate on a demonstration harbor craft or passenger catamaran to prove immersion cooling under actual operational cycles.</p>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--accent);">2. Joint Witnessed Testing</h3>
+          <p>Witness our upcoming IRS-supervised IEC 62619 cl. 7.3.3 propagation and hydrostatic pressure tests.</p>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--success);">3. Dual-Class Approvals</h3>
+          <p>Secure IRS Type Approval for Indian projects while building export-ready documentation for DNV and ABS.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div>VFCPL Marine BESS | Project SAMUDRA / AMBESS</div>
+  <div>Use keyboard [ &larr; ] and [ &rarr; ] to navigate</div>
+</footer>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const slideNumDisplay = document.getElementById('slide-num');
+
+  function showSlide(index) {
+    if (index < 0) index = 0;
+    if (index >= slides.length) index = slides.length - 1;
+
+    slides.forEach((s, idx) => {
+      s.classList.toggle('active', idx === index);
+    });
+
+    currentSlide = index;
+    slideNumDisplay.textContent = `${currentSlide + 1} / ${slides.length}`;
+  }
+
+  function nextSlide() {
+    if (currentSlide < slides.length - 1) {
+      showSlide(currentSlide + 1);
+    }
+  }
+
+  function prevSlide() {
+    if (currentSlide > 0) {
+      showSlide(currentSlide - 1);
+    }
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'Space') {
+      nextSlide();
+    } else if (e.key === 'ArrowLeft') {
+      prevSlide();
+    }
+  });
+</script>
+
+</body>
+</html>

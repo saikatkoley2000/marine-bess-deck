@@ -1,0 +1,722 @@
+[
+  {
+    "id": 1,
+    "category": "Supplier",
+    "entity": "Corvus Energy",
+    "title": "Orca ESS datasheet (Feb 2025)",
+    "url": "https://old.corvusenergy.com/wp-content/uploads/2019/04/datasheets_Corvus-Energy_Orca-ESS_2025.02.23.pdf",
+    "reliability": "Primary"
+  },
+  {
+    "id": 2,
+    "category": "Supplier",
+    "entity": "Corvus Energy",
+    "title": "Corvus Orca catalogue (NauticExpo)",
+    "url": "https://pdf.nauticexpo.com/pdf/corvus-energy-lithium-polymer-energy-storage/corvus-orca/194835-133959.html",
+    "reliability": "Secondary"
+  },
+  {
+    "id": 3,
+    "category": "Supplier",
+    "entity": "Corvus Energy",
+    "title": "Dolphin NxtGen 40 MWh for BC Ferries Summit Class",
+    "url": "https://chargedevs.com/newswire/corvus-energy-to-supply-40-mwh-of-dolphin-nxtgen-batteries-for-bc-ferries-summit-class-ships/",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 4,
+    "category": "Supplier",
+    "entity": "Corvus Energy",
+    "title": "BW Group: Corvus 40 MWh BC Ferries contract (Aug 2026)",
+    "url": "https://bw-group.com/newsroom/articles/2026/08/corvus-energy-secures-40mwh-landmark-battery-contract-for-bc-ferries-new-major-vessels-program/",
+    "reliability": "Primary"
+  },
+  {
+    "id": 5,
+    "category": "Supplier",
+    "entity": "Corvus Energy",
+    "title": "Shippax: BC Ferries Summit Class battery contract",
+    "url": "https://www.shippax.com/en/news/corvus-energy-secures-major-battery-contract-for-bc-ferries-new-summit-class-vessels.aspx",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 6,
+    "category": "Supplier",
+    "entity": "Corvus Energy",
+    "title": "Orca ESS passes NMA thermal runaway propagation testing",
+    "url": "https://www.batterypoweronline.com/news/corvus-energy-orca-ess-passes-nma-thermal-runaway-propagation-testing-2/",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 7,
+    "category": "Supplier",
+    "entity": "Corvus Energy",
+    "title": "Kongsberg selects Corvus for Matson containerships",
+    "url": "https://www.maritimebatteryforum.com/news/kongsberg-maritime-selects-corvus-energy-battery-systems-for-matsons-lng-powered-containerships",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 8,
+    "category": "Supplier",
+    "entity": "Corvus Energy",
+    "title": "Riviera: Chemistries advance battery storage (Blue Whale / Bibby eCSOV)",
+    "url": "https://www.rivieramm.com/news-content-hub/news-content-hub/chemistries-advance-battery-storage-as-vessel-construction-rises-88039",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 9,
+    "category": "Supplier",
+    "entity": "Corvus Energy",
+    "title": "Riviera: Corvus-BYD LFP battery gets DNV green light",
+    "url": "https://www.rivieramm.com/news-content-hub/corvus-byd-energy-developed-lfp-battery-gets-green-light-90210",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 10,
+    "category": "Supplier",
+    "entity": "Corvus Energy",
+    "title": "Ocean Economist: Corvus-BYD Blue Whale DNV approval",
+    "url": "https://oceaneconomist.com/articles/corvus-byd-blue-whale-battery-approval",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 11,
+    "category": "Supplier",
+    "entity": "Leclanché",
+    "title": "Leclanché e-Marine solutions page",
+    "url": "https://www.leclanche.com/solutions/e-transport-solutions/e-marine/",
+    "reliability": "Primary"
+  },
+  {
+    "id": 12,
+    "category": "Supplier",
+    "entity": "Leclanché",
+    "title": "Navius MRS-3 datasheet",
+    "url": "https://www.leclanche.com/wp-content/uploads/2023/10/NAVIUS-MRS3.pdf",
+    "reliability": "Primary"
+  },
+  {
+    "id": 13,
+    "category": "Supplier",
+    "entity": "Leclanché",
+    "title": "Leclanché Marine Battery Systems brochure",
+    "url": "https://www.leclanche.com/wp-content/uploads/2021/02/Leclanche-Marine-Battery-Systems.pdf",
+    "reliability": "Primary"
+  },
+  {
+    "id": 14,
+    "category": "Supplier",
+    "entity": "Leclanché",
+    "title": "Leclanché receives LR & BV type approvals",
+    "url": "https://www.offshore-energy.biz/leclanche-receives-type-approvals-for-its-marine-energy-storage-system/",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 15,
+    "category": "Supplier",
+    "entity": "Leclanché",
+    "title": "E-ferry Ellen: first DNV GL type-approved battery system",
+    "url": "https://www.rivieramm.com/news-content-hub/news-content-hub/denmarks-e-ferry-to-deploy-first-dnv-gl-type-approved-battery-system-28641",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 16,
+    "category": "Supplier",
+    "entity": "Leclanché",
+    "title": "Press release: CGN Lake Geneva battery supply",
+    "url": "https://www.leclanche.com/wp-content/uploads/2020/10/20201006-Leclanch%C3%A9-selected-to-supply-battery-storage-system-for-CGN_ENG.pdf",
+    "reliability": "Primary"
+  },
+  {
+    "id": 17,
+    "category": "Supplier",
+    "entity": "Leclanché",
+    "title": "Charged EVs: Leclanché cells and systems feature",
+    "url": "https://chargedevs.com/features/seaworthy-evs-leclanche-designs-and-manufactures-li-ion-cells-and-systems/",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 18,
+    "category": "Supplier",
+    "entity": "Echandia",
+    "title": "Echandia expanding in US market",
+    "url": "https://www.workboat.com/technology/swedish-battery-system-supplier-echandia-expanding-in-us-market",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 19,
+    "category": "Supplier",
+    "entity": "Echandia",
+    "title": "Echandia wins Incat order",
+    "url": "https://shipandbunker.com/news/world/474778-echandia-wins-first-marine-battery-system-order-from-incat",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 20,
+    "category": "Supplier",
+    "entity": "Echandia",
+    "title": "Echandia press releases (Cision)",
+    "url": "https://news.cision.com/echandia-group/ListItems",
+    "reliability": "Primary"
+  },
+  {
+    "id": 21,
+    "category": "Supplier",
+    "entity": "Echandia",
+    "title": "Echandia battery for Canadian Coast Guard hybrid icebreaker",
+    "url": "https://contabo.marinelink.com/news/echandia-supply-battery-system-canadian-532322",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 22,
+    "category": "Supplier",
+    "entity": "Echandia",
+    "title": "Echandia LTO batteries for all-electric commuter ferries",
+    "url": "https://www.shippax.com/en/press-releases/echandia-marine-lto-batteries-to-power-the-worlds-first-fleet-of-all-electric-commuter-ferries.aspx",
+    "reliability": "Primary"
+  },
+  {
+    "id": 23,
+    "category": "Supplier",
+    "entity": "Toshiba SCiB",
+    "title": "Toshiba SCiB product page",
+    "url": "https://www.global.toshiba/ww/products-solutions/battery/scib.html",
+    "reliability": "Primary"
+  },
+  {
+    "id": 24,
+    "category": "Supplier",
+    "entity": "Toshiba SCiB",
+    "title": "SCiB 20Ah cell specs (reseller)",
+    "url": "https://selianenergy.com/products/scib-2-3v-20ah-lto-rechargeable-battery-cycle-life-20000-for-low-temperature-discharge-home-reserve-power",
+    "reliability": "Unverified"
+  },
+  {
+    "id": 25,
+    "category": "Supplier",
+    "entity": "EST-Floattech",
+    "title": "Octopus LFP maritime modules launch",
+    "url": "https://www.emobility-engineering.com/est-floattech-lfp-octopus-series-maritime-battery-modules/",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 26,
+    "category": "Supplier",
+    "entity": "EST-Floattech",
+    "title": "CB Insights company comparison",
+    "url": "https://www.cbinsights.com/compare/est-floattech-vs-yinson-greentech",
+    "reliability": "Secondary"
+  },
+  {
+    "id": 27,
+    "category": "Supplier",
+    "entity": "EST-Floattech",
+    "title": "CB Insights profile",
+    "url": "https://www.cbinsights.com/investor/est-floattech",
+    "reliability": "Secondary"
+  },
+  {
+    "id": 28,
+    "category": "Supplier",
+    "entity": "Siemens Energy",
+    "title": "Siemens Li-ion battery for offshore (BlueVault)",
+    "url": "https://www.tdworld.com/distributed-energy-resources/energy-storage/article/20971259/siemens-introduces-li-ion-battery-for-offshore-operations",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 29,
+    "category": "Supplier",
+    "entity": "Siemens Energy",
+    "title": "Hybrid drives: Siemens sends in the machines",
+    "url": "https://www.marinelink.com/news/hybrid-drives-siemens-sends-machines-475953",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 30,
+    "category": "Supplier",
+    "entity": "Shift Clean Energy",
+    "title": "Shift new marine battery partnership",
+    "url": "https://shipandbunker.com/news/apac/359284-shift-clean-energy-announces-new-marine-battery-partnership",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 31,
+    "category": "Supplier",
+    "entity": "Shift Clean Energy",
+    "title": "Billion Electric: Shift distributor page",
+    "url": "https://www.billion.com/Energy-Storage-Solution/Shift-Clean-Energy",
+    "reliability": "Unverified"
+  },
+  {
+    "id": 32,
+    "category": "Supplier",
+    "entity": "Shift Clean Energy",
+    "title": "MarineLink: Brent Perry (Shift) news",
+    "url": "https://www.marinelink.com/news/maritime/brent-perry",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 33,
+    "category": "Supplier",
+    "entity": "Shift Clean Energy",
+    "title": "Shift and S&SYS partnership (South Korea)",
+    "url": "https://shift-cleanenergy.com/2023/06/06/marine-electrification-takes-a-new-step-forward-in-south-korea-with-shift-clean-energy-and-ssys-partnership/",
+    "reliability": "Primary"
+  },
+  {
+    "id": 34,
+    "category": "Supplier",
+    "entity": "Shift Clean Energy",
+    "title": "Interview: Shift sees near doubling of battery systems",
+    "url": "https://shipandbunker.com/news/world/572177-interview-shift-clean-energy-sees-near-doubling-of-maritime-battery-systems-by-2025",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 35,
+    "category": "Supplier",
+    "entity": "XING Mobility",
+    "title": "Marine battery offers double energy density",
+    "url": "https://interestingengineering.com/transportation/marine-battery-offers-double-energy-density",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 36,
+    "category": "Supplier",
+    "entity": "XING Mobility",
+    "title": "Immersion-cooled marine battery prevents fire spread",
+    "url": "https://interestingengineering.com/energy/immersion-cooled-marine-battery-twice-energy-density",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 37,
+    "category": "Supplier",
+    "entity": "XING Mobility",
+    "title": "Immersion-cooled battery targets electric vessels",
+    "url": "https://www.electronicsforu.com/news/immersion-cooled-battery-targets-electric-vessels",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 38,
+    "category": "Supplier",
+    "entity": "XING Mobility",
+    "title": "Immersion-cooled battery systems for marine propulsion",
+    "url": "https://aero-defence.tech/news/113894-immersion-cooled-battery-systems-for-marine-propulsion",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 39,
+    "category": "Supplier",
+    "entity": "Kreisel Electric",
+    "title": "Kreisel battery systems",
+    "url": "https://www.kreiselelectric.com/products/battery-systems/",
+    "reliability": "Primary"
+  },
+  {
+    "id": 40,
+    "category": "Supplier",
+    "entity": "Kreisel Electric",
+    "title": "Battery Design: liquid immersion cooling for packs",
+    "url": "https://www.batterydesign.net/liquid-immersion-cooling-for-battery-packs/",
+    "reliability": "Secondary"
+  },
+  {
+    "id": 41,
+    "category": "Supplier",
+    "entity": "Saft",
+    "title": "Seanergy 2.0 press release",
+    "url": "https://saft.com/en/media-resources/press-releases/saft%E2%80%99s-new-seanergy-20-li-ion-battery-will-drive-decarbonization",
+    "reliability": "Primary"
+  },
+  {
+    "id": 42,
+    "category": "Supplier",
+    "entity": "Saft",
+    "title": "Clean silent running (RRS Sir David Attenborough)",
+    "url": "https://saft.com/en/media-resources/our-stories/clean-silent-running",
+    "reliability": "Primary"
+  },
+  {
+    "id": 43,
+    "category": "Supplier",
+    "entity": "Forsee Power",
+    "title": "Forsee Power maritime battery",
+    "url": "https://www.electrive.com/2022/01/06/forsee-power-introduces-battery-for-maritime-use/",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 44,
+    "category": "Supplier",
+    "entity": "Forsee Power",
+    "title": "Pulse 2.5 DNV certification",
+    "url": "https://www.forseepower.com/press-release/forsee-power-obtains-dnv-certification-for-its-pulse-2-5-marine-battery-system-04-01-2022/",
+    "reliability": "Primary"
+  },
+  {
+    "id": 45,
+    "category": "Supplier",
+    "entity": "Spear Power Systems",
+    "title": "Spear marine technologies",
+    "url": "https://marine.spearpowersystems.com/technologies/",
+    "reliability": "Primary"
+  },
+  {
+    "id": 46,
+    "category": "Supplier",
+    "entity": "Freudenberg / XALT",
+    "title": "Derecktor + Freudenberg hybrid ferries Savannah",
+    "url": "https://derecktor.com/derecktor-shipyards-teams-up-with-freudenberg-e-power-systems-to-power-hybrid-electric-ferries-in-savannah/",
+    "reliability": "Primary"
+  },
+  {
+    "id": 47,
+    "category": "Supplier",
+    "entity": "Freudenberg / XALT",
+    "title": "XALT Energy profile",
+    "url": "https://battery-tech.net/company/xalt-energy/",
+    "reliability": "Secondary"
+  },
+  {
+    "id": 48,
+    "category": "Supplier",
+    "entity": "CATL",
+    "title": "CATL marine battery RINA type approval",
+    "url": "https://chinaevhome.com/2025/12/09/catls-marine-battery-system-receives-type-approval-from-rina/",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 49,
+    "category": "Supplier",
+    "entity": "CATL",
+    "title": "CATL marine battery RINA certification (Longbridge)",
+    "url": "https://longbridge.com/en/news/269029525",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 50,
+    "category": "Supplier",
+    "entity": "EVE Energy",
+    "title": "EVE Energy blueprint for green shipping",
+    "url": "https://www.energy-storage.news/industry-updates/eve-energy-draws-bright-blueprint-for-green-shipping/",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 51,
+    "category": "Supplier",
+    "entity": "EVE Energy",
+    "title": "Chinese battery maker moves into electric vessels",
+    "url": "https://xindemarinenews.com/news/2066816796125822977",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 52,
+    "category": "Supplier",
+    "entity": "EVE Energy",
+    "title": "EVE and Green Whale partnership (AMTI)",
+    "url": "https://www.advancedmaritimetechnologyinternational.com/news/battery-technology/eve-energy-and-green-whale-technology-partner-to-accelerate-marine-battery-deployment.html",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 53,
+    "category": "Supplier",
+    "entity": "EVE Energy",
+    "title": "EVE and Green Whale partnership (Charged EVs)",
+    "url": "https://chargedevs.com/newswire/eve-energy-partners-with-green-whale-to-accelerate-marine-battery-adoption/",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 54,
+    "category": "Supplier",
+    "entity": "Kongsberg",
+    "title": "SEACOR installs Kongsberg battery systems on PSVs",
+    "url": "https://vesselperformance.info/2024/01/31/seacor-installs-kongsberg-battery-systems-on-psvs/",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 55,
+    "category": "Immersion Cooling Research",
+    "entity": "Synthetic ester",
+    "title": "Synthetic ester forced-flow immersion cooling for Li-ion packs",
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/S2352152X24024381",
+    "reliability": "Peer-reviewed"
+  },
+  {
+    "id": 56,
+    "category": "Immersion Cooling Research",
+    "entity": "Synthetic ester",
+    "title": "Immersion BTMS based on synthetic ester fluid",
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/S0360544226010558",
+    "reliability": "Peer-reviewed"
+  },
+  {
+    "id": 57,
+    "category": "Immersion Cooling Research",
+    "entity": "Patent",
+    "title": "US 12407041 Immersion cooling battery system integrated with enclosure",
+    "url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/12407041",
+    "reliability": "Primary"
+  },
+  {
+    "id": 58,
+    "category": "Class & Regulation",
+    "entity": "IRS",
+    "title": "IRS Classification Notes: Approval of Li-ion Battery Systems (Jul 2020)",
+    "url": "https://www.irclass.org/media/4984/23-cn-approval-of-lithium-ion-battery-systems_july_2020.pdf",
+    "reliability": "Primary"
+  },
+  {
+    "id": 59,
+    "category": "Class & Regulation",
+    "entity": "IRS",
+    "title": "IRS Classification Notes: Approval of Li-ion Battery Systems (alt link)",
+    "url": "https://www.irclass.org/media/7317/23-cn-approval-of-lithium-ion-battery-systems_july_2020.pdf",
+    "reliability": "Primary"
+  },
+  {
+    "id": 60,
+    "category": "Class & Regulation",
+    "entity": "IRS / IMO",
+    "title": "IRS report on IMO MSC 110",
+    "url": "https://www.irclass.org/media/7943/msc-110-report.pdf",
+    "reliability": "Primary"
+  },
+  {
+    "id": 61,
+    "category": "Class & Regulation",
+    "entity": "DNV",
+    "title": "DNVGL-RU-SHIP Pt.6 Ch.2 (battery power rules)",
+    "url": "https://static1.squarespace.com/static/5f0d42f16639a745affd633e/t/5ff5d082add77853459846ec/1609945229408/DNVGL-RU-SHIP-Pt6Ch2.pdf",
+    "reliability": "Secondary copy"
+  },
+  {
+    "id": 62,
+    "category": "Class & Regulation",
+    "entity": "DNV",
+    "title": "DNV July 2023 rules edition news",
+    "url": "https://www.dnv.com/news/2023/dnv-has-published-the-july-2023-edition-of-the-rules-for-classification-of-ships-245133/",
+    "reliability": "Primary"
+  },
+  {
+    "id": 63,
+    "category": "Class & Regulation",
+    "entity": "DNV",
+    "title": "DNV July 2026 rules edition news",
+    "url": "https://www.dnv.com/news/2026/standards-now-available-the-july-2026-edition-of-the-dnv-class-rules-and-standards-for-ship-and-offshore/",
+    "reliability": "Primary"
+  },
+  {
+    "id": 64,
+    "category": "Class & Regulation",
+    "entity": "DNV",
+    "title": "Sample DNV type approval certificate (LFP battery)",
+    "url": "https://www.roypow.com/uploads/DNV-CERTIFICATE.pdf",
+    "reliability": "Secondary copy"
+  },
+  {
+    "id": 65,
+    "category": "Class & Regulation",
+    "entity": "ABS",
+    "title": "ABS Requirements for Use of Li-ion Batteries (Dec 2025)",
+    "url": "https://ww2.eagle.org/content/dam/eagle/rules-and-guides/current/other/275-requirements-for-use-of-lithium-ion-batteries-in-the-marine-and-offshore-industries-2025/275-lithium-ion-batteries-reqts-dec25.pdf",
+    "reliability": "Primary"
+  },
+  {
+    "id": 66,
+    "category": "Class & Regulation",
+    "entity": "ABS",
+    "title": "ABS Li-ion Requirements (2024 copy)",
+    "url": "https://maritimecyprus.com/wp-content/uploads/2024/04/ABS-RequirementsforUseofLithium-ionBatteries.pdf",
+    "reliability": "Secondary copy"
+  },
+  {
+    "id": 67,
+    "category": "Class & Regulation",
+    "entity": "ABS",
+    "title": "ABS Li-ion Requirements Apr 2024 (Scribd)",
+    "url": "https://www.scribd.com/document/846207389/Lithium-ion-Batteries-reqts-ABS-Apr24",
+    "reliability": "Secondary copy"
+  },
+  {
+    "id": 68,
+    "category": "Class & Regulation",
+    "entity": "ABS",
+    "title": "ABS Li-ion Requirements 2025 (Marine Tracker)",
+    "url": "https://seatracker.ru/viewtopic.php?t=67157",
+    "reliability": "Secondary copy"
+  },
+  {
+    "id": 69,
+    "category": "Class & Regulation",
+    "entity": "EMSA",
+    "title": "EMSA Guidance on the Safety of BESS on board ships",
+    "url": "https://www.emsa.europa.eu/publications/inventories/download/7643/5061/23.html",
+    "reliability": "Primary"
+  },
+  {
+    "id": 70,
+    "category": "Class & Regulation",
+    "entity": "EMSA",
+    "title": "EMSA news: new BESS safety guidance",
+    "url": "https://www.emsa.europa.eu/newsroom/latest-news/item/5065-new-guidance-on-the-safety-of-battery-energy-storage-systems.html",
+    "reliability": "Primary"
+  },
+  {
+    "id": 71,
+    "category": "Class & Regulation",
+    "entity": "EMSA",
+    "title": "EMSA BESS guidance (Marine Tracker copy)",
+    "url": "https://seatracker.ru/viewtopic.php?t=59788",
+    "reliability": "Secondary copy"
+  },
+  {
+    "id": 72,
+    "category": "Class & Regulation",
+    "entity": "IMO",
+    "title": "IMO MSC 111 meeting summary (May 2026)",
+    "url": "https://www.imo.org/en/mediacentre/meetingsummaries/pages/temporary-msc-111.aspx",
+    "reliability": "Primary"
+  },
+  {
+    "id": 73,
+    "category": "Class & Regulation",
+    "entity": "NMA (Norway)",
+    "title": "NMA circular: battery fire with subsequent gas explosion",
+    "url": "https://www.sdir.no/en/legislation/circulars/battery-fire-with-subsequent-gas-explosion",
+    "reliability": "Primary"
+  },
+  {
+    "id": 74,
+    "category": "Incidents",
+    "entity": "Ytterøyningen (2019)",
+    "title": "Car ferry battery fire probably caused by coolant leakage",
+    "url": "https://www.seatrade-maritime.com/casualty/car-ferry-battery-fire-probably-caused-coolant-leakage",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 75,
+    "category": "Incidents",
+    "entity": "Ytterøyningen (2019)",
+    "title": "NMA safety recommendations after Norled battery room fire",
+    "url": "https://www.bairdmaritime.com/work-boat-world/passenger-vessel-world/ro-pax/nma-issues-safety-recommendations-following-battery-room-fire-on-norled-ferry",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 76,
+    "category": "Incidents",
+    "entity": "General",
+    "title": "Shared lessons on vessel battery fires",
+    "url": "https://www.rivieramm.com/news-content-hub/shared-lessons-on-vessel-battery-firesnbspstrengthennbspsafety-59297",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 77,
+    "category": "India",
+    "entity": "Kochi Water Metro",
+    "title": "Kochi Water Metro ride report",
+    "url": "https://www.team-bhp.com/forum/commercial-vehicles/272084-kochis-water-metro-ride-report.html",
+    "reliability": "Unverified"
+  },
+  {
+    "id": 78,
+    "category": "India",
+    "entity": "Kochi Water Metro",
+    "title": "CDIA: Kochi Water Metro case study",
+    "url": "https://cdia.asia/2022/10/30/kochi-water-metro-leading-the-wave-of-sustainable-water-transport-in-india-and-south-asia/",
+    "reliability": "Secondary"
+  },
+  {
+    "id": 79,
+    "category": "India",
+    "entity": "Kochi Water Metro",
+    "title": "Wikipedia: Kochi Water Metro",
+    "url": "https://en.wikipedia.org/wiki/Kochi_Water_Metro",
+    "reliability": "Secondary"
+  },
+  {
+    "id": 80,
+    "category": "India",
+    "entity": "IWAI / HCSL",
+    "title": "IRS to class six hybrid electric catamarans for inland waterways",
+    "url": "https://en.portnews.ru/news/352073/",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 81,
+    "category": "India",
+    "entity": "IWAI / HCSL",
+    "title": "IRClass certifies India's first 100-pax battery catamaran ferry",
+    "url": "https://www.rivieramm.com/news-content-hub/news-content-hub/irclass-certifies-indias-first-100-pax-battery-powered-catamaran-ferry-69493",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 82,
+    "category": "India",
+    "entity": "Navalt",
+    "title": "Wikipedia: Aditya (solar ferry)",
+    "url": "https://en.wikipedia.org/wiki/Aditya_(boat)",
+    "reliability": "Secondary"
+  },
+  {
+    "id": 83,
+    "category": "India",
+    "entity": "Navalt",
+    "title": "Wikipedia: Indra (boat)",
+    "url": "https://en.wikipedia.org/wiki/Indra_(boat)",
+    "reliability": "Secondary"
+  },
+  {
+    "id": 84,
+    "category": "India",
+    "entity": "MoPSW / Harit Nauka",
+    "title": "MoPSW achievements and initiatives FY 2023-24",
+    "url": "https://shipmin.gov.in/sites/default/files/MoPSW%20achievemnts%20and%20initiatives%20of%20FY%202023-24_0.pdf",
+    "reliability": "Primary"
+  },
+  {
+    "id": 85,
+    "category": "India",
+    "entity": "General",
+    "title": "Wikipedia: Water transport in India",
+    "url": "https://en.wikipedia.org/wiki/Water_transport_in_India",
+    "reliability": "Secondary"
+  },
+  {
+    "id": 86,
+    "category": "India",
+    "entity": "Cochin Shipyard H2 ferry",
+    "title": "India's first hydrogen fuel cell ferry",
+    "url": "https://www.rivieramm.com/news-content-hub/indias-first-hydrogen-fuel-cell-powered-ferry-hits-the-water-79837",
+    "reliability": "Trade press"
+  },
+  {
+    "id": 87,
+    "category": "India",
+    "entity": "Cochin Shipyard H2 ferry",
+    "title": "Hydrogen-powered ferry launch (Vajiram & Ravi)",
+    "url": "https://vajiramandravi.com/current-affairs/hydrogen-powered-ferry/",
+    "reliability": "Secondary"
+  },
+  {
+    "id": 88,
+    "category": "India",
+    "entity": "Cochin Shipyard H2 ferry",
+    "title": "First indigenous hydrogen fuel cell ferry (ForumIAS)",
+    "url": "https://forumias.com/blog/indias-first-indigenously-developed-hydrogen-fuel-cell-ferry/",
+    "reliability": "Secondary"
+  },
+  {
+    "id": 89,
+    "category": "India",
+    "entity": "Cochin Shipyard H2 ferry",
+    "title": "Significance of hydrogen powered ferry (Shankar IAS)",
+    "url": "https://www.shankariasparliament.com/current-affairs/significance-of-hydrogen-powered-ferry",
+    "reliability": "Secondary"
+  },
+  {
+    "id": 90,
+    "category": "Market",
+    "entity": "Market size",
+    "title": "Expert Market Research: Marine battery market",
+    "url": "https://www.expertmarketresearch.com/reports/marine-battery-market",
+    "reliability": "Commercial estimate"
+  }
+]

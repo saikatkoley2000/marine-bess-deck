@@ -11,7 +11,9 @@ Dual-class certification alignment:
 ## 🚀 Live Links & Pages
 
 When deployed to Vercel or GitHub Pages:
-- **Slide Deck (Default)**: [`/`](ABS_ESS_LiBATTERY_Compliance_Deck.html) — 20-slide interactive presentation with keyboard navigation (`←` / `→`).
+- **Immersion Web App Hub**: [`/hub`](Marine_BESS_Immersion_Web_App.html) — 15-slide tech deck, 21-supplier matrix, Ytterøyningen incident analysis, K3 ester data, and 90+ clickable citations.
+- **Immersion Tech Deck**: [`/immersion-deck`](Marine_BESS_Tech_Deck_Immersion.html) — 15-slide standalone presentation.
+- **Slide Deck (ABS/IRS)**: [`/deck`](ABS_ESS_LiBATTERY_Compliance_Deck.html) — 20-slide interactive presentation with keyboard navigation (`←` / `→`).
 - **Master Web Application**: [`/app`](VFCPL_Marine_BESS_Master_Web_App.html) — Full interactive dashboard, filterable compliance tracker, hydrostatic calculator, and ICD matrix.
 - **PowerPoint Presentation**: [`VFCPL_Marine_BESS_ABS_ESS_LiBATTERY_Compliance.pptx`](VFCPL_Marine_BESS_ABS_ESS_LiBATTERY_Compliance.pptx)
 - **Exported PDF Presentation**: [`VFCPL_Marine_BESS_ABS_ESS_LiBATTERY_Compliance.pdf`](VFCPL_Marine_BESS_ABS_ESS_LiBATTERY_Compliance.pdf)
