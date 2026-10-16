@@ -1,12 +1,8 @@
 {
-  "framework": null,
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/deck", "destination": "/ABS_ESS_LiBATTERY_Compliance_Deck.html" },
-    { "source": "/app", "destination": "/VFCPL_Marine_BESS_Master_Web_App.html" },
-    { "source": "/master", "destination": "/VFCPL_Marine_BESS_Master_Web_App.html" },
-    { "source": "/hub", "destination": "/Marine_BESS_Immersion_Web_App.html" },
-    { "source": "/immersion-app", "destination": "/Marine_BESS_Immersion_Web_App.html" },
-    { "source": "/immersion-deck", "destination": "/Marine_BESS_Tech_Deck_Immersion.html" }
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/deck", "destination": "/Marine_BESS_Tech_Deck_Immersion.html" },
+    { "source": "/hub", "destination": "/index.html" }
   ]
 }
